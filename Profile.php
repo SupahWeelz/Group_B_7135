@@ -7,17 +7,17 @@
 -->
 
 <?php
+  
 	include "include/Header.php";
-	
 	$RecruiterVal=30;
-	
+
 	// Checks if user is logged in
 	if(!isset($_SESSION["loggedin"])){
 		echo "<script type='text/javascript'> document.location = 'Login.php'; </script>";
 	}
 	else{
 		// Display basic information like profile photo, name, current job, etc.
-		
+
 		echo '<body>
     <div class="card">
         <img src="include/boss.jpg" alt="Iguardo" style="width:100%"/>
@@ -41,27 +41,49 @@
     <div class="info">
 
         <!--<h2>About Me:</h2>-->
-        
+
     </div>
+
+		<!job seacrh code starts here....................................................>
+
+		<div id="jobserach" align="right">
+	<div id="jobsearch_box" align="right">
+	  <form action = "upload.php" method = "post">
+			<p><button>Job Search</button></p>
+	     <label>Job title  :</label>
+	     <input type = "text" name = "jname" class = "box"/><br /><br />
+	     <label>Keywords  :</label>
+	     <input type = "text" name = "keyword" class = "box"/><br/><br />
+	     <label>Job type :</label>
+	     <select type="text" name="jtype" class ="box"/> <br/><br/>
+	      <option value="FullTime">Full-time</option>
+	      <option value="PartTime">Part-time</option>
+	      <option value="Other">Other</option>
+	    </select>
+		<p>	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Search</button></p>
+	  </form>
+	</div>
+
+	</div>
 </body>';
-		
+
 		// Query to see if user is a job seeker
 		$isSeeker="SELECT UserID FROM jobseeker,userlogin WHERE ID=".$_SESSION["id"]." AND ID=UserID";
 		$result = query($isSeeker,$db);
 		$count = mysqli_num_rows($result);
 		//print_r($row);
-		
+
 		if($count > 0){
 			echo '<div class="info">';
 			echo '<form action="Job_Apps.php" method="POST"><button value="View Job Applications">View Job Applications</button></form>';
 			echo '</div>';
 		}
-		
+
 		// Query to see if user is a recruiter
 		$isPoster="SELECT UserTypeID FROM userlogin WHERE ID=".$_SESSION["id"];
 		$resultb = query($isPoster,$db);
 		$row = mysqli_fetch_array($resultb,MYSQLI_ASSOC);
-		
+
 		if($row["UserTypeID"] == $RecruiterVal){
 			// Display job postings here
 			echo '<h2>Job Postings:</h2>';
