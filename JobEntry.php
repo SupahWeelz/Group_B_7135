@@ -1,6 +1,8 @@
+
 <?php
 	include "include/Header.php";
 ?>
+
 <?php
     
 // capture the values for storage in sql statements
@@ -63,6 +65,8 @@ Benefits= <?php echo $_POST["Benefits"]; ?><br>
 Questions= <?php echo $_POST["Questions"]; ?><br><br>
 
 <button onclick="window.location.href = 'JobSearchPage';">View Jobs</button>
+
 <?php
 	include "include/Footer.php";
 ?>
+
