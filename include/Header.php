@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	include_once"include/Config.php";
 	include("include/Query.php");
 	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
 
@@ -21,16 +20,12 @@
 
                     <nav>
                       <ul>
-                        <li > <a href="#" >Home</a>  </li>
+                        <li > <a href="index.php" >Home</a>  </li>
 						<!-- Change to Job Listing once Ed is done with it-->
                         <li><a href="Job_Detail.php">Jobs</a></li>
                         <li><a href="Profile.php">Profile</a></li>
                         <li><a href="#">Message</a></li>
-                        <li><a href="#">Notifications</a></li>';
-							if (isset($_SESSION)){
-								echo '<li><a href="Logout.php">Sign Out</a></li>';
-							}
-						echo '
+                        <li><a href="#">Notifications</a></li>
                         <li><input type="text" placeholder="Search"></li>
                       </ul>
                     </nav>';

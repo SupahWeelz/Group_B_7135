@@ -7,7 +7,8 @@
    |	>Apply for job
  -->
 <?php
-	include("include/Header.php");
+	include "include/Header.php";
+	include "include/Config.php";
 ?>
 
 <!-- Gets job info from database -->

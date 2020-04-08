@@ -4,6 +4,7 @@
  -->
 <?php
 	include("include/Header.php");
+	include "include/Config.php";
 	
 	// Check if user has a jobseeker profile
 	

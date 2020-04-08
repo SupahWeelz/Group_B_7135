@@ -1,38 +1,18 @@
 <?php
 	include("include/Header.php");
-	if($_SERVER["REQUEST_METHOD"] == "POST") {
-	  
-		// username and password sent from form 
-		$myusername = mysqli_real_escape_string($db,$_POST['username']);
-		$mypassword = mysqli_real_escape_string($db,$_POST['password']);
-		
-		// query to validate username and password inputs
-		$sql = 'SELECT ID FROM userlogin WHERE username = "'.$myusername.'" AND password = "'.$mypassword.'"';
-		$result = mysqli_query($db,$sql) or die('Error executing query: '.mysqli_error($db));
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      
-		$count = mysqli_num_rows($result);
-		
-		// checks if there's a match and sets session variables
-		if($count == 1) {
-			$_SESSION['id'] = $row["ID"];
-			$_SESSION['username'] = $myusername;
-			$_SESSION['loggedin'] = True;
-			header("location: Index.php");
-		}
-		else {
-			echo "Your Username or Password is invalid";
-		}
-	}
+	include "include/Config.php";
 ?>
   <!login pop up codes..............................................................................>
                     <div id="login">
-                      <lable color:"white">Alreay have an account? Log in here</lable>
+                      <p>Alreay have an account? Log in here</p>
+
                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+					
+					<button onclick="window.location.replace('Logout.php');" style="width:auto;">Logout</button>
 
                   	<div id="id01" class="modal">
 
-                  	  <form class="modal-content animate" action="/action_page.php" method="post">
+                  	  <form class="modal-content animate" action="Login.php" method="post">
                   	    <div class="imgcontainer">
                   	      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                   	      <img src="images/avatar2.png" alt="Avatar" class="avatar"/>
@@ -45,7 +25,8 @@
                   	      <label for="psw"><b>Password</b></label>
                   	      <input type="password" placeholder="Enter Password" name="psw" required/>
 
-                  	      <button type="submit">Login</button>
+                  	      <button type="submit" onclick="window.location.href = 'Profile.php';">Login</button>
+
                   	      <label>
                   	        <input type="checkbox" checked="checked" name="remember"/> Remember me
                   	      </label>

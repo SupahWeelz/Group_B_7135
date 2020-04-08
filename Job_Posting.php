@@ -5,6 +5,7 @@
 -->
 <?php
 	include "include/Header.php";
+	include "include/Config.php";
 ?>
 <h1>Input Job Attributes </h1>
 <!-- used for testing on w3schools.com
