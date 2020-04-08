@@ -1,21 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
 <!--
    | -Page for recruiters to create new job postings
    | -Buttons that lead to this page will only be available for recruiters
    | -Unfinished
 -->
-
-<html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-     <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-            <title>Job Posting Page</title>
-        </head>
-<body>
-
+<?php
+	include "include/Header.php";
+?>
 <h1>Input Job Attributes </h1>
 <!-- used for testing on w3schools.com
      The form can be found at https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_value
@@ -60,5 +50,6 @@
   <input type="submit" value="Submit"/>
 </form>
 
-</body>
-</html>
+<?php
+	include "include/Footer.php";
+?>

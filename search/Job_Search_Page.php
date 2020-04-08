@@ -9,33 +9,28 @@
             <title>Job Search Page</title>
         </head>
 <body>
-  <div id="jobserach">
+  <div id="jobserach" align="center">
     <h1 style="color:white;">Job Search</h1>
 
-<div id="jobsearch_tab">
-<form action="/action_page.php">
-
-  <label for="jname">Job title :</label>
-  <input type="text" id="txtbox" name="jname" /><br/>
-
-  <label for="keyword">Keywords :</label>
-  <input type="text" id="txtbox" name="keyword"/><br/>
-
-  <label for="jtype">Job type :</label>
-  <select id="txtbox" name="jtype">
-
+<div id="jobsearch_box">
+  <form action = "" method = "post">
+     <label>Job title  :</label>
+     <input type = "text" name = "jname" class = "box"/><br /><br />
+     <label>Keywords  :</label>
+     <input type = "text" name = "keyword" class = "box"/><br/><br />
+     <label>Job type :</label>
+     <select type="text" name="jtype" class ="box"/> <br/><br/>
       <option value="FullTime">Full-time</option>
       <option value="PartTime">Part-time</option>
       <option value="Other">Other</option>
     </select>
   </form>
 </div>
-<br/>
-<div style="text-align:center;">
-    <button>Clear</button>&nbsp &nbsp &nbsp
-    <button>Search</button>&nbsp
-    <button>Back</button>
-</div>
+
+  <div class="search">
+   <button>Search</button>
+ </div>
+
 </div>
 </body>
 </html>

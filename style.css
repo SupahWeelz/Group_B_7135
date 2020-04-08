@@ -1,0 +1,176 @@
+html {
+    background: rgb(57, 12, 101);
+  font-family: 'Work Sans', sans-serif;
+}
+
+/* Index page style starts here */
+#top{
+  padding-top: 10px;
+    padding-bottom: 15px;
+  text-align: center;
+  text-decoration: underline;
+    color: white;
+
+}
+#main {
+  margin: 0;
+
+  margin-top: -20px;
+
+}
+
+#logo {
+font-size: 150px;
+background-image: url(natureImage.jpg);
+background-position: top;
+}
+
+nav {
+background-color: white;
+    
+
+}
+
+nav ul {
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+nav li {
+color: purple;
+    display: inline-block;
+    margin-left: 100px;
+    position: float;
+    padding-bottom: 20px;
+}
+
+footer{
+    color: white;
+}
+
+/*index page style ends here */
+/*--------------------------------------------------------*/
+
+#welcomepage_nav {
+  -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: #ccc;
+    padding: 20px;
+}
+
+.welcomepage_logo {
+  text-align:center;
+  font-size: 150px;
+margin-bottom: ;
+}
+
+.welcomepage_p{
+
+  padding-left: 300px;
+  font-size: 50px;
+}
+
+/*--------------------------------------------------------*/
+/* LogIn page style starts here */
+    body {
+       font-family:Arial, Helvetica, sans-serif;
+       font-size:14px;
+    }
+    label {
+       font-weight:bold;
+       width:100px;
+       font-size:14px;
+       display: inline-flex;
+       flex-flow: row;
+    }
+    .box {
+       border:#666666 solid 1px;
+    }
+
+/* LogIn page style ends here */
+
+/*--------------------------------------------------------*/
+
+/* Profile page style starts here*/
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            position: absolute;
+            top: 80px;
+            left: 10px;
+        }
+
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+            button:hover, a:hover {
+                opacity: 0.7;
+            }
+
+        .info {
+            color: black;
+            position: absolute;
+            top: 80px;
+            left: 330px;
+        }
+/*Profile page style ends here */
+
+/*---------------------------------------------*/
+
+/* Job search page style starts here */
+#jobsearch {
+  align-items: center;
+
+
+}
+
+
+#jobsearch_box {
+padding-bottom: 20px;
+  padding-top: 15px;
+  border: 3px;
+background-color: white;
+
+}
+
+.box {
+
+  height: 20px;
+  width: 200px;
+
+
+}
+
+.button {
+    background-color: white;
+}
+
+/* Job search page style ends here */
+/*--------------------------------------------------------*/

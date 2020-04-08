@@ -1,30 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
 <!--
    | -Allows user to reset their password
 -->
 
-
-<html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-
-  <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-            <title>Change Password</title>
-</head>
-
 <?php
-	session_start();
-	 
+	include "include/Header.php";
 	// Check if the user is logged in, otherwise redirect to login page
 	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 		echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
 	}
-	
-	include_once("include/Config.php");
-	include("include/Query.php");
 	 
 	// Define variables and initialize with empty values
 	$new_password = $confirm_password = "";
@@ -81,8 +64,6 @@
 		}
 	}
 ?>
-
-<body>
     <div class="wrapper">
         <h2>Change Password</h2>
         <p>Please fill out this form to change your password.</p>
@@ -101,5 +82,6 @@
             </div>
         </form>
     </div>    
-</body>
-</html>
+<?php
+	include "include/Footer.php";
+?>
