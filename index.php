@@ -1,8 +1,30 @@
-
 <?php
 	include("include/Header.php");
+	if($_SERVER["REQUEST_METHOD"] == "POST") {
+	  
+		// username and password sent from form 
+		$myusername = mysqli_real_escape_string($db,$_POST['username']);
+		$mypassword = mysqli_real_escape_string($db,$_POST['password']);
+		
+		// query to validate username and password inputs
+		$sql = 'SELECT ID FROM userlogin WHERE username = "'.$myusername.'" AND password = "'.$mypassword.'"';
+		$result = mysqli_query($db,$sql) or die('Error executing query: '.mysqli_error($db));
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      
+		$count = mysqli_num_rows($result);
+		
+		// checks if there's a match and sets session variables
+		if($count == 1) {
+			$_SESSION['id'] = $row["ID"];
+			$_SESSION['username'] = $myusername;
+			$_SESSION['loggedin'] = True;
+			header("location: Index.php");
+		}
+		else {
+			echo "Your Username or Password is invalid";
+		}
+	}
 ?>
-
   <!login pop up codes..............................................................................>
                     <div id="login">
                       <p>Alreay have an account? Log in here</p>
@@ -53,8 +75,6 @@
 
 <!login pop up code ends here.......................................................................................>
 
-          <div id="banner"><img src="images/Banner.png" /></div>
-        </div>
 <?php
 	include("include/Footer.php");
 ?>

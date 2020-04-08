@@ -30,11 +30,30 @@
 		echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
 	}
 	else{
-		echo "Query unsuccessful!":
+		echo "Query unsuccessful!";
 	}
 	
 ?>
-		
+		<form action="" method="POST">
+		<div class="container">
+			<h1>Job Application</h1>
+			<p>Please fill in this form.</p>
+			<hr/>
+				<br/>
+				
+				<label for="justification"><b>Justification</b></label>
+				<input type="text" name="justification" required="required"/>
+				
+				<br/>
+
+				<label for="answer"><b>Answer</b></label>
+				<input type="text" name="answer" required="required"/>
+				
+			<hr/>
+
+			<button type="submit" class="registerbtn">Register</button>
+		</div>
+	</form>
 <?php
-	include("include/Header.php");
+	include("include/Footer.php");
 ?>
