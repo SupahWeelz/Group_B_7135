@@ -12,10 +12,10 @@
 
 <!-- Gets job info from database -->
 <?php
-	$job_id=1; // replace with $_POST["some variable here"] received from Job_Apps, Job_Search_Results;
+	$jobId=1; // replace with $_POST["some variable here"] received from Job_Apps, Job_Search_Results;
 	
 	//Query to extract details about job
-	$sql = "SELECT JobName,Description,Open_date,Close_date,Number_available,Qualification,SalaryRange,Location,Benefits,Questions FROM job WHERE JobID = ".$job_id;
+	$sql = "SELECT JobName,Description,Open_date,Close_date,Number_available,Qualification,SalaryRange,Location,Benefits,Questions FROM job WHERE JobID = ".$jobId;
 	$result = Query($sql,$db);
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	
@@ -67,7 +67,8 @@
 			echo '<form action="Job_Seeker_Register.php" type="POST">';
 			echo '<input type="submit" value="Create Jobseeker profile"/>';
 			echo '</form>';
-			echo '<form action="Process_Application.php" type="POST">';
+			echo '<form action="Process_Application_A.php" type="POST">';
+			echo '<input type="text" type="hidden" value='.$jobId;
 			echo '<input type="submit" value="Apply"/>';
 			echo '</form>';
 		}
@@ -76,7 +77,8 @@
 		echo '<form action="Job_Seeker_Register.php" type="POST">';
 		echo '<input type="submit" value="Create Jobseeker profile!"/>';
 		echo '</form>';
-		echo '<form action="Process_Application.php" type="POST">';
+		echo '<form action="Process_Application_A.php" type="POST">';
+		echo '<input type="text" type="hidden" value='.$jobId;
 		echo '<input type="submit" value="Apply"/>';
 		echo '</form>';
 	}
