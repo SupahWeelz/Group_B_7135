@@ -10,6 +10,7 @@
   
 	include "include/Header.php";
 	include "include/Config.php";
+
 	$RecruiterVal=30;
 
 	// Checks if user is logged in
@@ -62,7 +63,10 @@
 	      <option value="PartTime">Part-time</option>
 	      <option value="Other">Other</option>
 	    </select>
+
 		<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
+
+		
 	  </form>
 	</div>
 
