@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 05, 2020 at 03:15 PM
+-- Generation Time: Apr 08, 2020 at 06:54 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -32,7 +32,7 @@ USE se_jobsearchapp;
 
 DROP TABLE IF EXISTS `application`;
 CREATE TABLE IF NOT EXISTS `application` (
-  `ApplicationID` int(11) NOT NULL,
+  `ApplicationID` int(11) NOT NULL AUTO_INCREMENT,
   `JobID` int(11) NOT NULL,
   `JobSeekerID` int(11) NOT NULL,
   `Applied_date` date NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `association` (
 
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE IF NOT EXISTS `company` (
-  `CompanyID` int(11) NOT NULL,
+  `CompanyID` int(11) NOT NULL AUTO_INCREMENT,
   `AssociationID` int(11) NOT NULL,
   `CompanyName` varchar(50) DEFAULT NULL,
   `Description` varchar(300) DEFAULT NULL,

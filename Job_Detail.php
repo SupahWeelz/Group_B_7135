@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
 <!-- 
    | -Given job id, searches database for info related to that job. (SQL queries)
    | -Job creator can:
@@ -7,31 +6,16 @@
    | -Job applicant can:
    |	>Apply for job
  -->
-
 <?php
-	session_start();
+	include("include/Header.php");
 ?>
-
-<html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	  <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-            <title>Job Detail Page</title>
-        </head>
-<body>
 
 <!-- Gets job info from database -->
 <?php
-	include_once("include/Config.php");
-	include("include/Query.php");
-	
-	
-	$job_id=1; // replace with $_POST["some variable here"] received from Job_Apps, Job_Search_Results;
+	$jobId=1; // replace with $_POST["some variable here"] received from Job_Apps, Job_Search_Results;
 	
 	//Query to extract details about job
-	$sql = "SELECT JobName,Description,Open_date,Close_date,Number_available,Qualification,SalaryRange,Location,Benefits,Questions FROM job WHERE JobID = ".$job_id;
+	$sql = "SELECT JobName,Description,Open_date,Close_date,Number_available,Qualification,SalaryRange,Location,Benefits,Questions FROM job WHERE JobID = ".$jobId;
 	$result = Query($sql,$db);
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	
@@ -83,7 +67,8 @@
 			echo '<form action="Job_Seeker_Register.php" type="POST">';
 			echo '<input type="submit" value="Create Jobseeker profile"/>';
 			echo '</form>';
-			echo '<form action="" type="POST">';
+			echo '<form action="Process_Application_A.php" type="POST">';
+			echo '<input type="text" type="hidden" value='.$jobId;
 			echo '<input type="submit" value="Apply"/>';
 			echo '</form>';
 		}
@@ -92,7 +77,8 @@
 		echo '<form action="Job_Seeker_Register.php" type="POST">';
 		echo '<input type="submit" value="Create Jobseeker profile!"/>';
 		echo '</form>';
-		echo '<form action="" type="POST">';
+		echo '<form action="Process_Application_A.php" type="POST">';
+		echo '<input type="text" type="hidden" value='.$jobId;
 		echo '<input type="submit" value="Apply"/>';
 		echo '</form>';
 	}
@@ -101,5 +87,6 @@
 	//header("location: index.php");
 ?>
 	
-</body>
-</html>
+<?php
+	include "include/Footer.php";
+?>

@@ -1,16 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
 <!--
    | -Login page
    | -Has some basic error handling
    | -All new users need to go through this page
 --> 
 <?php
-	session_start();
-?>
-
-<?php
-	include_once("include/Config.php");
+	include"include/Header.php";
    
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 	  
@@ -37,16 +31,6 @@
 		}
 	}
 ?>
-  <html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
- 	 <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-      	    <title>Login Page</title>
-   	 </head>
-   
-   <body bgcolor = "#FFFFFF">
 	
       <div align = "center">
          <div style = "width:300px; border: solid 1px #333333; " align = "left">
@@ -68,5 +52,6 @@
 			
       </div>
 
-   </body>
-</html>
+<?php
+	include "include/Footer.php";
+?>

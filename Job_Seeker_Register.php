@@ -1,5 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
 <!--
    | -Page for jobseekers looking to create a jobseeker profile
    | -Checks if user is logged in.
@@ -10,21 +8,11 @@
    | -There will be a button that leads to this page
 -->
 
-<html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	  <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-            <title>Jobseeker Registration Page</title>
-        </head>
 <?php
-
-	session_start();
-	require_once "include/Config.php";
+	include "include/Header.php";
 	
 	// Checks if user is logged in
-	if(isset($_SESSION) || $_SESSION["loggedin"] === true ){
+	if($_SESSION["loggedin"] === true ){
 		
 		// Checks if server has requested POST
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -98,4 +86,6 @@
 			<button type="submit" class="registerbtn">Register</button>
 		</div>
 	</form>
-</html>
+<?php
+	include "include/Footer.php";
+?>
