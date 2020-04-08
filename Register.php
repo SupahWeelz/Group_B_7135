@@ -1,5 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
 <!--
    | -Page for new users looking to create a basic account
    | -Has some basic error checking (username taken, email address taken, password not matching password confirm)
@@ -7,11 +5,7 @@
 --> 
 
 <?php
-	session_start();
-?>
-
-<?php
-	require_once "include/Config.php";
+	include "include/Header.php";
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$errors=array();
@@ -57,15 +51,6 @@
 		}
 	}
 ?>
-
-<html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	  <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-            <title>Registration Page</title>
-        </head>
 	
 	<form action="" method="POST">
 		<div class="container">
@@ -109,5 +94,6 @@
 		<div class="container signin">
 			<p>Already have an account? <a href="Login.php">Sign in</a>.</p>
 		</div>
-	</form>
-</html>
+<?php
+	include "include/Footer.php";
+?>

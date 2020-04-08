@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
 <!--
    | -Allows user to view their own profile
    | -Checks session variable for user id and pulls info from database based on id
@@ -6,20 +5,10 @@
    |	>if user is an applicant, then list the user's job applications
    | 	>if user is a recruiter,  then list the user's job postings
 -->
-<?php
-	session_start();
-?>
-  <html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<head>
-   	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		 <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-		 <link type="text/css" rel="stylesheet" href="style.css"/>
 
-</head>
 <?php
-	include_once("include/Config.php");
-	include("include/Query.php");
+
+	include "include/Header.php";
 
 	$RecruiterVal=30;
 

@@ -5,20 +5,8 @@
    | -Only reachable from user's profile when the user is logged in
 -->
 <?php
-	include_once("include/Config.php");
-	include("include/Query.php");
-	session_start();
+	include("include/Header.php");
 ?>
-
-<html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-  <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-            <title>Job Applied</title>
-        </head>
-	<body>
     		<h1>Current Applications </h1>
    		 <?php
  			$getApplications = "SELECT JobName, Applied_date, Description, B.CompanyID
@@ -46,5 +34,6 @@
 
     <!--Need to Add Application Numbering ie 1 to 50 && add a remove/delete button to each row-->
 
-</body>
-</html>
+<?php
+	include("include/Footer.php");
+?>
