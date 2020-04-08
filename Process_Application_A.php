@@ -1,4 +1,7 @@
-<?php include "include/Header.php";?>
+<?php 
+	include "include/Header.php";
+	include "include/Config.php";
+?>
 <form action="Process_Application_B.php" method="POST">
 		<div class="container">
 			<h1>Job Application</h1>

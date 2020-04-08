@@ -10,7 +10,7 @@
 
 <?php
 	include "include/Header.php";
-	
+	include "include/Config.php";
 	// Checks if user is logged in
 	if($_SESSION["loggedin"] === true ){
 		

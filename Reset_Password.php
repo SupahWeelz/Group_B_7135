@@ -4,6 +4,7 @@
 
 <?php
 	include "include/Header.php";
+	include "include/Config.php";
 	// Check if the user is logged in, otherwise redirect to login page
 	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 		echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";

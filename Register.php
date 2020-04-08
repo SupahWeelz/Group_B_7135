@@ -6,6 +6,7 @@
 
 <?php
 	include "include/Header.php";
+	include "include/Config.php";
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$errors=array();

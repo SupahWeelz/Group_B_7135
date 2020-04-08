@@ -9,13 +9,16 @@
 <?php
   
 	include "include/Header.php";
+	include "include/Config.php";
+
 	$RecruiterVal=30;
 
 	// Checks if user is logged in
-	if(!isset($_SESSION["loggedin"])){
-		echo "<script type='text/javascript'> document.location = 'Login.php'; </script>";
-	}
-	else{
+	print_r($_SESSION);
+	//if(!isset($_SESSION["loggedin"])){
+	//	echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+	//}
+	//else{
 		// Display basic information like profile photo, name, current job, etc.
 
 		echo '<body>
@@ -60,7 +63,10 @@
 	      <option value="PartTime">Part-time</option>
 	      <option value="Other">Other</option>
 	    </select>
-		<p>	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Search</button></p>
+
+		<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
+
+		
 	  </form>
 	</div>
 
@@ -88,5 +94,5 @@
 			// Display job postings here
 			echo '<h2>Job Postings:</h2>';
 		}
-	}
+	//}
 ?>

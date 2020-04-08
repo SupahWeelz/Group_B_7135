@@ -6,6 +6,7 @@
 -->
 <?php
 	include("include/Header.php");
+	include "include/Config.php";
 ?>
     		<h1>Current Applications </h1>
    		 <?php
