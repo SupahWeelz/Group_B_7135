@@ -9,6 +9,7 @@
             <link type="text/css" rel="stylesheet" href="style.css"/>
 
             <title>DCDR.sa</title>
+
         </head>
         <!--
            | -Login page
@@ -49,7 +50,8 @@
         ?>
 
     <body>
-      <div id="top"><h1>A small logo goes here</h1></div>
+      <div id="top"><img src="images/TransLogo.png" alt="logo"  style="width:100px;height:100px"/></div>
+
         <div id="main">
 
                     <nav>
@@ -66,7 +68,8 @@
 
   <!login pop up codes..............................................................................>
                     <div id="login">
-                      <lable color:"white">Alreay have an account? Log in here</lable>
+                      <p>Alreay have an account? Log in here</p>
+
                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
                   	<div id="id01" class="modal">
@@ -84,7 +87,8 @@
                   	      <label for="psw"><b>Password</b></label>
                   	      <input type="password" placeholder="Enter Password" name="psw" required/>
 
-                  	      <button type="submit">Login</button>
+                  	      <button type="submit" onclick="window.location.href = 'Profile.php';">Login</button>
+
                   	      <label>
                   	        <input type="checkbox" checked="checked" name="remember"/> Remember me
                   	      </label>
@@ -112,9 +116,7 @@
 
 <!login pop up code ends here.......................................................................................>
 
-          <div id="logo">
-            <h1>DCDR.sa</h1>
-          </div>
+          <div id="banner"><img src="images/Banner.png" /></div>
         </div>
 
 
