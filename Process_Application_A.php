@@ -1,6 +1,7 @@
 <?php 
 	include "include/Header.php";
 	include "include/Config.php";
+	print_r($_POST);
 ?>
 <form action="Process_Application_B.php" method="POST">
 		<div class="container">
@@ -20,16 +21,15 @@
 				<br/>
 				
 				<!-- Receives jobid and passes it to Process_Application_B.php -->
-				<?php 
-					$jobid=$_POST["jobId"];
-					echo '<input type="text" name="jobid" type="hidden" value='.$jobid.'>';
-				?>
+				
+				<input name="jobId" type="hidden" value=<?php echo $_POST["jobId"]; ?>>
+
 				
 				<br/>
 				
 			<hr/>
 
-			<button type="submit" class="registerbtn">Register</button>
+			<button type="submit" class="submitbtn">Submit</button>
 		</div>
 	</form>
 <?php include "include/Footer.php";?>

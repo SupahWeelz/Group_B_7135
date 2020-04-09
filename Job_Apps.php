@@ -9,13 +9,13 @@
 	include "include/Config.php";
 ?>
     		<h1>Current Applications </h1>
+			
    		 <?php
- 			$getApplications = "SELECT JobName, Applied_date, Description, B.CompanyID
-           		FROM application as A, job as B, jobseeker as C
-           		WHERE C.JobSeekerID = A.JobseekerID AND A.JobID = B.JobID
-            		GROUP BY A.ApplicationID
-            		ORDER BY Close_date";
-	
+			// Selects and displays applications that current user has applied to
+ 			$getApplications = "SELECT * FROM application, job, jobseeker WHERE jobseeker.JobSeekerID = application.JobseekerID AND A.JobID = B.JobID GROUP BY A.ApplicationID ORDER BY Close_date";
+			
+			$getApplications = "SELECT * FROM application, job, jobseeker WHERE jobseeker.JobSeekerID = application.JobseekerID AND jobseeker.UserID=".$_SESSION["id"];
+			
 			$result = query($getApplications,$db);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			$count = mysqli_num_rows($result);
@@ -23,7 +23,7 @@
     			if ($count > 0) {
 				echo "<table><tr><th>Job Title</th><th>Submission Date</th><th>Job Description</th><th>Company</th></tr>";
         			while($row = $result->fetch_assoc()) {
-				echo "<tr><td>".$row["JobName"]."</td><td>".$row["Applied_date"]."</td><td>".$row["Description"]."</td><td> ".$row["B.CompanyID"]."</td></tr>";
+				echo "<tr><td>".$row["JobName"]."</td><td>".$row["Applied_date"]."</td><td>".$row["Description"]."</td><td> ".$row["CompanyID"]."</td></tr>";
         				}
         			echo "</table>";
    			} 

@@ -17,7 +17,7 @@
 	
 	//Query to extract details about job
 	$sql = "SELECT JobName,Description,Open_date,Close_date,Number_available,Qualification,SalaryRange,Location,Benefits,Questions FROM job WHERE JobID = ".$jobId;
-	$result = Query($sql,$db);
+	$result = query($sql,$db);
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	
 	//Display results
@@ -43,9 +43,8 @@
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true ){
 		
 		$sql="SELECT userlogin.ID FROM userlogin,job WHERE PostedBy=".$_SESSION["id"];
-		$result=Query($sql,$db);
+		$result=query($sql,$db);
 		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-		
 		if(!empty($row)){
 			// Poster can change JobName, Description, Open_Date,Close_Date, Number_available, Qualification, SalaryRange,JobType, Location, Benefits, Questions.
 			echo 'Hello Job Poster.';
@@ -69,7 +68,7 @@
 			echo '<input type="submit" value="Create Jobseeker profile"/>';
 			echo '</form>';
 			echo '<form action="Process_Application_A.php" type="POST">';
-			echo '<input type="text" type="hidden" value='.$jobId;
+			echo '<input type="hidden" value='.$jobId;
 			echo '<input type="submit" value="Apply"/>';
 			echo '</form>';
 		}
@@ -79,7 +78,7 @@
 		echo '<input type="submit" value="Create Jobseeker profile!"/>';
 		echo '</form>';
 		echo '<form action="Process_Application_A.php" type="POST">';
-		echo '<input type="text" type="hidden" value='.$jobId;
+		echo '<input type="hidden" value='.$jobId;
 		echo '<input type="submit" value="Apply"/>';
 		echo '</form>';
 	}

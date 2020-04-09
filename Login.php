@@ -21,15 +21,15 @@
 		$count = mysqli_num_rows($result);
 		
 		// checks if there's a match and sets session variables
-		if($count == 1) {
+		if($count != 0) {
 			$_SESSION['id'] = $row["ID"];
 			$_SESSION['username'] = $myusername;
 			$_SESSION['loggedin'] = True;
-			header("location: index.php");
 			//print_r($_SESSION);
+			header("location: index.php");
 		}
 		else{
-			echo "Incorrect information";
+			echo "That's fucking wrong.";
 		}
 	}
 	//include "include/Footer.php";
