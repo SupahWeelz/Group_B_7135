@@ -1,5 +1,6 @@
 <?php
-	echo '<div id="banner"><img src="../images/Banner.png" /></div>
+	echo '<div id="banner"><img src="images/Banner.png" /></div>
+
        
 	</div>
 
@@ -10,4 +11,6 @@
 </footer>
 
 </html>';
+$db -> close();
+
 ?>

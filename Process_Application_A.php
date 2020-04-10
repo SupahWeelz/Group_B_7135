@@ -1,7 +1,9 @@
 <?php 
 	include "include/Header.php";
 	include "include/Config.php";
-	print_r($_POST);
+
+	//print_r($_POST);
+
 ?>
 <form action="Process_Application_B.php" method="POST">
 		<div class="container">

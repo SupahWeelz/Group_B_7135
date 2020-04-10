@@ -19,10 +19,14 @@
 	}
 ?>
 		<!-- Display basic information like profile photo, name, current job, etc.-->
+	
+	<?php
+		
+	?>
+	
 
-	<body>
     <div class="card">
-        <img src="include/boss.jpg" alt="Iguardo" style="width:100%"/>
+        <img src="include/boss.jpg" alt="Iguardo" style="width:100%;"/>
         <h1>Iguardo Valencia</h1>
         <p class="title">Procurement Category Specialist (New Energies), Shell</p>
         <p>Texas AM</p>
@@ -32,9 +36,9 @@
         <a href="#"><i class="fa fa-facebook"></i></a>
         <p><button>Contact</button></p>
     </div>
-
+	
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
+		Select image to upload:
         <input type="file" name="fileToUpload" id="fileToUpload"/>
         <input type="submit" value="Upload Image" name="submit"/>
     </form>
@@ -76,7 +80,7 @@
 </body>
 <?php
 		// Query to see if user is a job seeker
-		$isSeeker="SELECT UserID FROM jobseeker,userlogin WHERE ID=".$_SESSION["id"]." AND ID=UserID";
+		$isSeeker="SELECT jobseeker.UserID FROM jobseeker,userlogin WHERE userlogin.UserID=".$_SESSION["id"]." AND jobseeker.UserID=userlogin.UserID";
 		$result = query($isSeeker,$db);
 		$count = mysqli_num_rows($result);
 		//print_r($row);
@@ -88,7 +92,7 @@
 		}
 
 		// Query to see if user is a recruiter
-		$isPoster="SELECT UserTypeID FROM userlogin WHERE ID=".$_SESSION["id"];
+		$isPoster="SELECT UserTypeID FROM userlogin WHERE UserID=".$_SESSION["id"];
 		$resultb = query($isPoster,$db);
 		$row = mysqli_fetch_array($resultb,MYSQLI_ASSOC);
 
@@ -104,4 +108,6 @@
 			}
 			echo '<h2>Job Postings:</h2>';
 		}
+include("include/Footer.php");
+
 ?>

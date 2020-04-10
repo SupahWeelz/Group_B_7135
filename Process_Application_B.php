@@ -5,13 +5,15 @@
 <?php
 	include "include/Header.php";
 	include "include/Config.php";
-	echo date('Y-m-d');
+	//echo date('Y-m-d');
+
 	//print_r($_POST);
 
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		// Check if user has a jobseeker profile
 	
-		$isSeeker="SELECT UserID,JobSeekerID FROM jobseeker,userlogin WHERE ID=".$_SESSION["id"]." AND ID=UserID";
+		$isSeeker="SELECT jobseeker.UserID,JobSeekerID FROM jobseeker,userlogin WHERE userlogin.UserID=".$_SESSION["id"]." AND userlogin.UserID=jobseeker.UserID";
+
 		$result = query($isSeeker,$db);
 		$count = mysqli_num_rows($result);
 		

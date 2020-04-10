@@ -14,7 +14,7 @@
 		$mypassword = mysqli_real_escape_string($db,$_POST['psw']);
 		
 		// query to validate username and password inputs
-		$sql = 'SELECT ID FROM userlogin WHERE username = "'.$myusername.'" AND password = "'.$mypassword.'"';
+		$sql = 'SELECT UserID FROM userlogin WHERE username = "'.$myusername.'" AND password = "'.$mypassword.'"';
 		$result = mysqli_query($db,$sql) or die('Error executing query: '.mysqli_error($db));
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       
@@ -22,15 +22,20 @@
 		
 		// checks if there's a match and sets session variables
 		if($count != 0) {
-			$_SESSION['id'] = $row["ID"];
+
+			$_SESSION['id'] = $row["UserID"];
+
 			$_SESSION['username'] = $myusername;
 			$_SESSION['loggedin'] = True;
 			//print_r($_SESSION);
 			header("location: index.php");
 		}
 		else{
-			echo "That's fucking wrong.";
+			echo "Invalid username or password.";
+			echo '<form><input type="button" value="Go back!" onclick="history.back()"></form>';
+
 		}
 	}
+	$db -> close();
 	//include "include/Footer.php";
 ?>

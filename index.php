@@ -1,7 +1,8 @@
 <?php
 	include("include/Header.php");
 	include "include/Config.php";
-	print_r($_SESSION);
+	//print_r($_SESSION);
+
 ?>
   <!login pop up codes..............................................................................>
                     
