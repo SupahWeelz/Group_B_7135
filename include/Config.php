@@ -1,5 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
 <?php
    define('DB_SERVER', 'localhost');
    define('DB_USERNAME', 'root');

@@ -46,14 +46,14 @@
 			
 			// Prepare an update query
 			$sql = "UPDATE userlogin SET password ='".$new_password."' WHERE id =".$_SESSION["id"];
-			$result = Query($sql,$db);
+			$result = query($sql,$db);
 			if($result = True){
 				session_destroy();
 				echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
 			}
 			else{
 				$query_failed_err="Update failed.";
-				array_push($errors,);
+				array_push($errors,$query_failed_err);
 			}
 			//$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		}

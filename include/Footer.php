@@ -1,9 +1,7 @@
 <?php
-	echo '<div id="logo">
-            <h1>DCDR.sa</h1>
-          </div>
-        </div>
-
+	echo '<div id="banner"><img src="images/Banner.png" /></div>
+       
+	</div>
 
     </body>
 
@@ -12,4 +10,5 @@
 </footer>
 
 </html>';
+$db -> close();
 ?>

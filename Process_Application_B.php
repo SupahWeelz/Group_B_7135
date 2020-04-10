@@ -3,12 +3,15 @@
 	| Creates a new entry in the Application table
  -->
 <?php
-	include("include/Header.php");
+	include "include/Header.php";
 	include "include/Config.php";
+	//echo date('Y-m-d');
+	//print_r($_POST);
+
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		// Check if user has a jobseeker profile
 	
-		$isSeeker="SELECT UserID FROM jobseeker,userlogin WHERE ID=".$_SESSION["id"]." AND ID=UserID";
+		$isSeeker="SELECT jobseeker.UserID,JobSeekerID FROM jobseeker,userlogin WHERE userlogin.UserID=".$_SESSION["id"]." AND userlogin.UserID=jobseeker.UserID";
 		$result = query($isSeeker,$db);
 		$count = mysqli_num_rows($result);
 		
@@ -16,15 +19,12 @@
 			echo "<script type='text/javascript'> document.location = 'Job_Seeker_Register.php'; </script>";
 		}
 		
-		// Retrieve job seeker id
-		
-		$getSeeker="SELECT JobSeekerID FROM jobseeker,userlogin WHERE ID=".$_SESSION["id"]." AND jobseeker.UserID = ID";
-		$resultb = query($getSeeker,$db);
-		$rowb=mysqli_fetch_array($resultb,MYSQLI_ASSOC);
+		//$getSeeker="SELECT JobSeekerID FROM jobseeker,userlogin WHERE ID=".$_SESSION["id"]." AND jobseeker.UserID = ID";
+		$rowb=mysqli_fetch_array($result,MYSQLI_ASSOC);
 		
 		// Insert new application
 		
-		$makeApp="INSERT INTO application (JobID,JobSeekerID,Applied_date, Justification,Answers) VALUES (".$_POST["jobId"].",".$rowb["JobSeekerID"].",".$_POST["justification"].",".date('Y-m-d').",".$_POST["answer"].")";
+		$makeApp="INSERT INTO application (JobID,JobSeekerID,Justification,Applied_date,Answers) VALUES (".$_POST["jobId"].",".$rowb["JobSeekerID"].",'".$_POST["justification"]."','".date('Y-m-d')."','".$_POST["answer"]."')";
 		$resultc=query($makeApp,$db);
 		
 		if($resultc == True){

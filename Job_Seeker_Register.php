@@ -12,7 +12,7 @@
 	include "include/Header.php";
 	include "include/Config.php";
 	// Checks if user is logged in
-	if($_SESSION["loggedin"] === true ){
+	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
 		
 		// Checks if server has requested POST
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -28,7 +28,7 @@
 			// Query to check if current user already has a Jobseeker profile
 			
 			$profCheck="SELECT UserID FROM jobseeker WHERE UserID=".$_SESSION["id"];
-			$resultb = mysqli_query($db,$profCheck) or die('Error executing query: '.mysqli_error($db));
+			$resultb = query($profCheck,$db);
 			$rowb = mysqli_fetch_array($resultb,MYSQLI_ASSOC);
 			
 			if($rowb["UserID"] == $_SESSION["id"]){
@@ -37,7 +37,15 @@
 			else{
 				// Query to add entry
 				$sql = "INSERT INTO jobseeker (PersonalStatement,Education,JobHistory,Skills,Experience,EverEmployee,UserID) VALUES ('".$_POST["personalstatement"]."','".$_POST["education"]."','".$_POST["jobhistory"]."','".$_POST["skills"]."','".$_POST["experience"]."','".$_POST["everemployee"]."',".$_SESSION["id"].")";
-				$result = mysqli_query($db,$sql) or die('Error executing query: '.mysqli_error($db));
+				$result = Query($sql,$db);
+				echo $result;
+				if($result == true){
+					// redirect to profile
+					echo "<script type='text/javascript'> document.location = 'Profile.php'; </script>";
+				}
+				else{
+					echo "Incorrect data";
+				}
 			}
 		}
 	}

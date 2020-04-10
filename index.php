@@ -1,15 +1,26 @@
 <?php
 	include("include/Header.php");
 	include "include/Config.php";
+	//print_r($_SESSION);
 ?>
   <!login pop up codes..............................................................................>
-                    <div id="login">
-                      <p>Alreay have an account? Log in here</p>
-
+                    
+					<div id="login">
+					  
+					<?php
+						if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true ){
+							echo '<button onclick="window.location.replace(\'Logout.php\');" style="width:auto;">Logout</button>';
+						}
+						else{
+							echo '<p>Alreay have an account? Log in here</p>';
+							echo '<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Login</button>';
+						}
+					?>
+					<!--
                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 					
 					<button onclick="window.location.replace('Logout.php');" style="width:auto;">Logout</button>
-
+					-->
                   	<div id="id01" class="modal">
 
                   	  <form class="modal-content animate" action="Login.php" method="post">
