@@ -9,7 +9,6 @@
 	include "include/Config.php";
 ?>
     		<h1>Current Applications </h1>
-			
  <?php
 	// Selects and displays applications that current user has applied to
 	//$getApplications = "SELECT * FROM application, job, jobseeker WHERE jobseeker.JobSeekerID = application.JobseekerID AND A.JobID = B.JobID GROUP BY A.ApplicationID ORDER BY Close_date";
@@ -36,6 +35,7 @@
 			echo "0 results";
 		}
 ?>
+
 
     <!--Need to Add Application Numbering ie 1 to 50 && add a remove/delete button to each row-->
 

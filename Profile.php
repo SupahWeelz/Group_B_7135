@@ -24,6 +24,7 @@
 		
 	?>
 	
+
     <div class="card">
         <img src="include/boss.jpg" alt="Iguardo" style="width:100%;"/>
         <h1>Iguardo Valencia</h1>
@@ -108,4 +109,5 @@
 			echo '<h2>Job Postings:</h2>';
 		}
 include("include/Footer.php");
+
 ?>

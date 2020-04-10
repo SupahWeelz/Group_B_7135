@@ -1,5 +1,6 @@
 <?php
 	echo '<div id="banner"><img src="images/Banner.png" /></div>
+
        
 	</div>
 
@@ -11,4 +12,5 @@
 
 </html>';
 $db -> close();
+
 ?>

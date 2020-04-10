@@ -22,7 +22,9 @@
 		
 		// checks if there's a match and sets session variables
 		if($count != 0) {
+
 			$_SESSION['id'] = $row["UserID"];
+
 			$_SESSION['username'] = $myusername;
 			$_SESSION['loggedin'] = True;
 			//print_r($_SESSION);
@@ -31,6 +33,7 @@
 		else{
 			echo "Invalid username or password.";
 			echo '<form><input type="button" value="Go back!" onclick="history.back()"></form>';
+
 		}
 	}
 	$db -> close();

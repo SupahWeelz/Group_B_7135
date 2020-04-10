@@ -23,6 +23,7 @@ ______________________________________________________
 <div>
 	<br>
 	<form><input type="button" value="Go back!" onclick="history.back()"></form>
+
     <input type="submit" value="Reset">
 </div>
 
