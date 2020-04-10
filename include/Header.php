@@ -15,7 +15,7 @@
         </head>
 
     <body>
-      <div id="top"><h1>A small logo goes here</h1></div>
+       <div id="top"><img src="../images/TransLogo.png" alt="logo"  style="width:100px;height:100px"/></div>
         <div id="main">
 
                     <nav>
