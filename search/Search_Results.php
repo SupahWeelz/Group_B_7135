@@ -1,66 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
-<html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<body>
-		<!--	Given a string of text, scan database for job titles that contain the string.-->
-		<?php
-			function failure($P){
-				$F[0] = 0;
-				$i = 1;
-				$j = 0;
-				$m = strlen($P);
-				while($i<$m){
-					if($P[$i] == $P[$j]){
-					$F[$i] = $j + 1;
-					$i = $i + 1;
-					$j = $j + 1;
-					}
-					elseif($j > 0){
-					$j = $F[$j-1];
-					}
-					else{
-					$F[$i] = 0;
-					$i = $i + 1;
-					}
-				}
-				return $F;
-			}
+<!--	Given a string of text, scan database for keywords that contain the string.-->
+<?php
+	include("include/Header.php");
+	include("include/Config.php");
+	include("KMP.php");
 	
-			function kmp($T,$P){
-				$i=0;
-				$j=0;
-				$F = failure($P);
-				$n = strlen($T);
-				$m = strlen($P);
-				while($i < $n){
-					if($T[$i] == $P[$j]){
-						if ($j==$m-1){
-						return $i-$j;
-						}
-						else{
-						$i=$i+1;
-						$j=$j+1;
-						}
-					}
-					else{
-						if($j>0){
-						$j = $F[$j-1];
-						}
-						else{
-						$i=$i+1;
-						}
-					}
-				}
-			return -1;
-			}
+	$P=$_GET["search"];
+	$listJobs=array();
 	
+	// Gets job ids
+	$getIds="SELECT JobID FROM job";
+	$result=Query($getIds,$db);
 	
-		$P=$_GET["search"];
-		$T="We like to eat lots of pie.";
+	// Loops through all jobs
+	while($row = mysqli_fetch_assoc($result)){
+		// Gets key words from db
+		$getKeywords="SELECT Keywords FROM job WHERE JobID=".$row['JobID'];
+		$result2=Query($getKeywords,$db);
+		$row2=mysqli_fetch_assoc($result2);
+		//echo "Keywords: ".$row2["Keywords"]."<br>";
+		
+		// Tries to match search with keywords
+		$T=$row2["Keywords"];
 		$K=kmp($T,$P);
 		$match=substr($T,$K,strlen($P));
+		// If there is a match, add current job id to list
+		if ($match >= 0){
+			array_push($listJobs,$row['JobID']);
+		}
+	}
 	
-		echo "<br/>$match,$K";
-		?>
-	</body>
-</html>
+	// Base query DO NOT CHANGE
+	$getIds2="SELECT JobName,JobDescription FROM job WHERE JobID=";
+	
+	echo "<table><tr><th>Job Title</th><th>Job Description</th></tr>";
+	for ($i=0; $i < sizeof($listJobs); $i=$i+1){
+		$temp=$getIds2.$listJobs[$i];
+		$tempResult=Query($temp,$db);
+		$tempRow=mysqli_fetch_assoc($tempResult);
+		echo "<tr><td>".$tempRow["JobName"]."</td><td>".$tempRow["JobDescription"]."</td></tr>";
+	}
+	echo "</table>";
+	
+	include("include/Footer.php");
+?>

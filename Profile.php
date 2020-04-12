@@ -21,20 +21,17 @@
 		<!-- Display basic information like profile photo, name, current job, etc.-->
 	
 	<?php
-		
+		$getName="SELECT FirstName,LastName FROM userlogin WHERE UserID='".$_SESSION["id"]."'";
+		$result=Query($getName,$db);
+		$row=mysqli_fetch_assoc($result);
 	?>
 	
-
+	<?php
+		//Store profile picture
+	?>
     <div class="card">
         <img src="include/boss.jpg" alt="Iguardo" style="width:100%;"/>
-        <h1>Iguardo Valencia</h1>
-        <p class="title">Procurement Category Specialist (New Energies), Shell</p>
-        <p>Texas AM</p>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <p><button>Contact</button></p>
+        <h1><?php echo $row["FirstName"].' '.$row["LastName"];?></h1>
     </div>
 	
     <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -55,23 +52,26 @@
 			<p><button>Job Search</button></p>
 		<br><br>
 		<form action= "Job_Search_Results.php" method="post">
-		  
+		 <!-- 
 		 Job ID		  <input type="text" name="JobID" style="width:auto;">
 		 Job Name     <input type="text" name="JobName" style="width:auto;">
 		 Job Type     <input type="text" name="JobType" style="width:auto;">
-		 Job Category <input type="text" name="JobCategory" style="width:auto;">
 		 SalaryRange  <input type="text" name="SalaryRange" style="width:auto;">
-		 Posting Date <input type="text" name="PostDate" style="width:auto;">
-		 Close Date   <input type="text" name="CloseDate" style="width:auto;">
+		 Posting Date <input type="date" name="PostDateStart" style="width:auto;">
+		 to   <input type="date" name="PostDateEnd" style="width:auto;">
 		 Job Location <input type="text" name="Location" style="width:auto;">
 		 Company ID   <input type="text" name="CompanyID" style="width:auto;">
 		 Description  <input type="text" name="Keyword" style="width:auto;">
+		 -->
+		 Keyword <input type="text" name="Keyword" style="width:auto;">
 		<br>
+		<!--
 	     <select type="text" name="jtype" class ="box"/> <br/><br/>
 	      <option value="FullTime">Full-time</option>
 	      <option value="PartTime">Part-time</option>
 	      <option value="Other">Other</option>
 	    </select>
+		-->
 		<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
 		</form>
 	</div>
