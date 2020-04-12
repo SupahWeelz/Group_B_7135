@@ -26,6 +26,8 @@
 		
 		// Insert new application
 		
+		//print_r($_POST);
+		
 		$makeApp="INSERT INTO application (JobID,JobSeekerID,Justification,Applied_date,Answers) VALUES (".$_POST["jobId"].",".$rowb["JobSeekerID"].",'".$_POST["justification"]."','".date('Y-m-d')."','".$_POST["answer"]."')";
 		$resultc=query($makeApp,$db);
 		

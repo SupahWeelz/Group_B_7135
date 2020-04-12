@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
 <?php
-	
+	include("include/Header.php");
+	include("include/Config.php");
 ?>
 <html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<head>
@@ -14,3 +14,6 @@
 		</form>
 	</body>
 </html>
+<?php
+	include("include/Footer.php");
+?>
