@@ -45,7 +45,7 @@
 		if(empty($errors)){
 			
 			// Prepare an update query
-			$sql = "UPDATE userlogin SET password ='".$new_password."' WHERE id =".$_SESSION["id"];
+			$sql = "UPDATE userlogin SET Password =PASSWORD('".$new_password."') WHERE UserID =".$_SESSION["id"];
 			$result = query($sql,$db);
 			if($result = True){
 				session_destroy();
