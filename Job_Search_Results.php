@@ -22,12 +22,13 @@
 		// Tries to match search with keywords
 		$T=$row2["Keywords"];
 		$K=kmp($T,$P);
-		$match=substr($T,$K,strlen($P));
+		//$match=substr($T,$K,strlen($P));
 		// If there is a match, add current job id to list
-		if ($match >= 0){
+		if ($K >= 0){
 			array_push($listJobs,$row['JobID']);
 		}
 	}
+	//echo sizeof($listJobs);
 	
 	$getIds2="SELECT JobID,JobName,JobDescription,Number_available,BasicQualifications,PreferredQualifications,SalaryRange FROM job WHERE JobID=";
 	

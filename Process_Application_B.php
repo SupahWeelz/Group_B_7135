@@ -36,7 +36,26 @@
 		$resultc=query($makeApp,$db);
 		
 		if($resultc == True){
-			echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
+			// Get applicant email address
+			$getEmail="SELECT Email FROM userlogin WHERE UserID=".$_SESSION["id"];
+			$result=query($getEmail,$db);
+			$row=mysqli_fetch_assoc($result);
+			
+			$address=$row["Email"];
+			$subject="DCDR Application";
+			$from="DCDR";
+			
+			// Get job title
+			$getJob="SELECT JobName FROM job WHERE JobID=".$_POST["jobId"];
+			$result2=query($getJob,$db);
+			$row2=mysqli_fetch_assoc($result2);
+			
+			$message="You have successfully submitted an application for the position: ".$row2["JobName"].".";
+			$message=wordwrap($message,70);
+			
+			mail($address,$subject,$message,$from);
+			
+			//echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
 		}
 		else{
 			echo "Query unsuccessful!";
