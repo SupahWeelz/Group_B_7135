@@ -13,7 +13,7 @@
 		
 		
 		//Query checks if username is taken
-		$getUsername = "SELECT ID 
+		$getUsername = "SELECT UserID 
 						FROM userlogin 
 						WHERE username ='".$_POST["username"]."'";
 		$result = mysqli_query($db,$getUsername) or die('Error executing query: '.mysqli_error($db));
