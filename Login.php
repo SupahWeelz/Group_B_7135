@@ -14,7 +14,7 @@
 		$mypassword = mysqli_real_escape_string($db,$_POST['psw']);
 		
 		// query to validate username and password inputs
-		$sql = 'SELECT UserID FROM userlogin WHERE username = "'.$myusername.'" AND password = PASSWORD("'.$mypassword.'")';
+		$sql = 'SELECT UserID FROM userlogin WHERE username = "'.$myusername.'" AND password = SHA("'.$mypassword.'")';
 		$result = mysqli_query($db,$sql) or die('Error executing query: '.mysqli_error($db));
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       
