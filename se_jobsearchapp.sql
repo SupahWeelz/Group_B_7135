@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 13, 2020 at 02:00 AM
+-- Generation Time: Apr 13, 2020 at 09:06 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `application` (
   PRIMARY KEY (`ApplicationID`),
   KEY `JobSeekerID` (`JobSeekerID`),
   KEY `JobID` (`JobID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `application`
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `jobseeker` (
   `UserID` int(11) NOT NULL,
   PRIMARY KEY (`JobSeekerID`),
   UNIQUE KEY `UserID` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jobseeker`
@@ -249,29 +249,30 @@ CREATE TABLE IF NOT EXISTS `userlogin` (
   UNIQUE KEY `Username` (`Username`),
   UNIQUE KEY `Email` (`Email`),
   KEY `usertypeid` (`UserTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `userlogin`
 --
 
 INSERT INTO `userlogin` (`UserID`, `UserTypeID`, `Username`, `Password`, `FirstName`, `MiddleName`, `LastName`, `Email`, `StreetAddress`, `City`, `State`, `ZipCode`, `Phone`, `ProfilePicture`) VALUES
-(30, 40, 'Dalessa@yahoo.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Dahne', NULL, 'D_alessandro', 'Dalessa@yahoo.com', '', 'Baton Rouge', 'LA', '32', NULL, ''),
-(46, 40, 'dani@hotmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Dani', NULL, 'Rodriguez', 'dani@hotmail.com', '1654 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, ''),
-(47, 40, 'danielCaraba@hotmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Daniel', NULL, 'Caraballo', 'danielCaraba@hotmail.com', '1655 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, ''),
-(48, 40, 'daniel@hotmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Daniel', NULL, 'Rodriguez', 'daniel@hotmail.com', '1656 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, ''),
-(49, 40, 'DS@yahoo.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Denisse', NULL, 'Saenz', 'DS@yahoo.com', '1423 Burbank Dr Gonzales', 'Baton Rouge', 'LA', '5674', NULL, ''),
-(50, 40, 'JD@yahoo.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Jose', NULL, 'Rodriguez', 'JD@yahoo.com', '4532 Nicholson Dr Baton Roug', 'Baton Rouge', 'LA', '70803', NULL, ''),
-(61, 40, 'kt@yahoo.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Julia', NULL, 'Mata', 'kt@yahoo.com', '1423 Burbank Dr Gonzales', 'Baton Rouge', 'LA', '5674', NULL, ''),
-(62, 40, 'Manuel', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Manuel', NULL, 'Caballero', '', '7896 Gonzales', 'Baton Rouge', 'LA', '5678', NULL, ''),
-(63, 40, 'Mauortiz@hotmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Mauricio', NULL, 'Ortiz', 'Mauortiz@hotmail.com', '5432 Nicholson Dr Covington', 'Baton Rouge', 'LA', '6756', NULL, ''),
-(70, 40, 'NS@gmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Nathalie', NULL, 'Stephano', 'NS@gmail.com', '6734 Corporate Baton Rouge', 'Baton Rouge', 'LA', '70801', NULL, ''),
-(72, 40, 'Paula', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Paula', NULL, 'Smith', 'paula@yahoo.com', '7896 Lafayette', 'Baton Rouge', 'LA', '7085', NULL, ''),
-(73, 40, 'SS@gmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Samuel', NULL, 'Stephano', 'SS@gmail.com', '6734 Corporate Baton Rouge', 'Baton Rouge', 'LA', '70801', NULL, ''),
-(74, 40, 'st@hotmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Santi', NULL, 'Salas', 'st@hotmail.com', '5432 Nicholson Dr Covington', 'Baton Rouge', 'LA', '6756', NULL, ''),
-(75, 40, 'stortiz@hotmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Santiago', NULL, 'Ortiz', 'stortiz@hotmail.com', '5432 Nicholson Dr Covington', 'Baton Rouge', 'LA', '67569', NULL, ''),
-(76, 40, 'SRodriguez@yahoo.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Sebastian', NULL, 'Rodriguez', 'SRodriguez@yahoo.com', '', 'Baton Rouge', 'LA', '32', NULL, ''),
-(77, 40, 'ST@gmail.com', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'Sim', NULL, 'Thapa', 'ST@gmail.com', '6734 Corporate Baton Rouge', 'Baton Rouge', 'LA', '70801', NULL, '');
+(30, 40, 'Dalessa@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Dahne', NULL, 'D_alessandro', 'Dalessa@yahoo.com', '', 'Baton Rouge', 'LA', '32', NULL, ''),
+(46, 40, 'dani@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Dani', NULL, 'Rodriguez', 'dani@hotmail.com', '1654 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, ''),
+(47, 40, 'danielCaraba@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Daniel', NULL, 'Caraballo', 'danielCaraba@hotmail.com', '1655 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, ''),
+(48, 40, 'daniel@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Daniel', NULL, 'Rodriguez', 'daniel@hotmail.com', '1656 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, ''),
+(49, 40, 'DS@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Denisse', NULL, 'Saenz', 'DS@yahoo.com', '1423 Burbank Dr Gonzales', 'Baton Rouge', 'LA', '5674', NULL, ''),
+(50, 40, 'JD@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Jose', NULL, 'Rodriguez', 'JD@yahoo.com', '4532 Nicholson Dr Baton Roug', 'Baton Rouge', 'LA', '70803', NULL, ''),
+(61, 40, 'kt@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Julia', NULL, 'Mata', 'kt@yahoo.com', '1423 Burbank Dr Gonzales', 'Baton Rouge', 'LA', '5674', NULL, ''),
+(62, 40, 'Manuel', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Manuel', NULL, 'Caballero', '', '7896 Gonzales', 'Baton Rouge', 'LA', '5678', NULL, ''),
+(63, 40, 'Mauortiz@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Mauricio', NULL, 'Ortiz', 'Mauortiz@hotmail.com', '5432 Nicholson Dr Covington', 'Baton Rouge', 'LA', '6756', NULL, ''),
+(70, 40, 'NS@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Nathalie', NULL, 'Stephano', 'NS@gmail.com', '6734 Corporate Baton Rouge', 'Baton Rouge', 'LA', '70801', NULL, ''),
+(72, 40, 'Paula', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Paula', NULL, 'Smith', 'paula@yahoo.com', '7896 Lafayette', 'Baton Rouge', 'LA', '7085', NULL, ''),
+(73, 40, 'SS@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Samuel', NULL, 'Stephano', 'SS@gmail.com', '6734 Corporate Baton Rouge', 'Baton Rouge', 'LA', '70801', NULL, ''),
+(74, 40, 'st@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Santi', NULL, 'Salas', 'st@hotmail.com', '5432 Nicholson Dr Covington', 'Baton Rouge', 'LA', '6756', NULL, ''),
+(75, 40, 'stortiz@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Santiago', NULL, 'Ortiz', 'stortiz@hotmail.com', '5432 Nicholson Dr Covington', 'Baton Rouge', 'LA', '67569', NULL, ''),
+(76, 40, 'SRodriguez@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Sebastian', NULL, 'Rodriguez', 'SRodriguez@yahoo.com', '', 'Baton Rouge', 'LA', '32', NULL, ''),
+(77, 40, 'ST@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Sim', NULL, 'Thapa', 'ST@gmail.com', '6734 Corporate Baton Rouge', 'Baton Rouge', 'LA', '70801', NULL, ''),
+(79, 50, 'Weelz', '92f2fd99879b0c2466ab8648afb63c49032379c1', 'Jesse', '', 'Dai', 'gdai1@lsu.edu', NULL, 'Baton Rouge', 'LA', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
