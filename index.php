@@ -14,7 +14,8 @@
 						}
 						else{
 							echo '<p>Alreay have an account? Log in here</p>';
-							echo '<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Login</button>';
+							echo '<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Login </button>';
+							echo '<button onclick="document.location=\'Register.php\'" style="width:auto;">Register</button>';
 						}
 					?>
 					<!--

@@ -8,7 +8,11 @@
 	//echo date('Y-m-d');
 
 	//print_r($_POST);
-
+	
+	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false ){
+		echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
+	}
+	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		// Check if user has a jobseeker profile
 	
