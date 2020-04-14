@@ -1,0 +1,308 @@
+html {
+    background: #9657de;
+    font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+body {
+    
+       font-size:14px;
+   
+}
+
+/* Index page style starts here */
+
+#top{
+padding-bottom: 10px;
+
+}
+
+
+#main {
+  margin: 0;
+  margin-top: -20px;
+
+}
+
+#banner {
+
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+nav {
+background-color: white;
+    
+
+}
+
+nav ul {
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+nav li {
+color: purple;
+    display: inline-block;
+    margin-left: 100px;
+    position: float;
+    padding-bottom: 20px;
+}
+
+
+input [type=text] {
+      background-image: url('images/searchicon.png');
+}
+
+/*index page style ends here */
+/*--------------------------------------------------------*/
+
+/*--------------------------------------------------------*/
+/* LogIn page style starts here */
+
+
+	
+#login{
+    align-content: right;
+   
+}
+	/* Full-width input fields */
+	input[type=text], input[type=password] {
+	  width: 100%;
+	  padding: 12px 20px;
+	  margin: 8px 0;
+	  display: inline-block;
+	  border: 1px solid #ccc;
+	  box-sizing: border-box;
+	}
+	
+	/* Set a style for all buttons */
+	button {
+	  background-color: #4CAF50;
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  cursor: pointer;
+	  width: 100%;
+	}
+	
+	button:hover {
+	  opacity: 0.8;
+	}
+	
+	/* Extra styles for the cancel button */
+	.cancelbtn {
+	  width: auto;
+	  padding: 10px 18px;
+	  background-color: #f44336;
+	}
+	
+	/* Center the image and position the close button */
+	.imgcontainer {
+	  text-align: center;
+	  margin: 24px 0 12px 0;
+	  position: relative;
+	}
+	
+	img.avatar {
+	  width: 40%;
+	  border-radius: 50%;
+	}
+	
+	.container {
+	  padding: 16px;
+	}
+	
+	span.psw {
+	  float: right;
+	  padding-top: 16px;
+	}
+	
+	/* The Modal (background) */
+	.modal {
+	  display: none; /* Hidden by default */
+	  position: fixed; /* Stay in place */
+	  z-index: 1; /* Sit on top */
+	  left: 0;
+	  top: 0;
+	  width: 100%; /* Full width */
+	  height: 100%; /* Full height */
+	  overflow: auto; /* Enable scroll if needed */
+	  background-color: rgb(0,0,0); /* Fallback color */
+	  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	  padding-top: 60px;
+	}
+	
+	/* Modal Content/Box */
+	.modal-content {
+	  background-color: #fefefe;
+	  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+	  border: 1px solid #888;
+	  width: 80%; /* Could be more or less, depending on screen size */
+	}
+	
+	/* The Close Button (x) */
+	.close {
+	  position: absolute;
+	  right: 25px;
+	  top: 0;
+	  color: #000;
+	  font-size: 35px;
+	  font-weight: bold;
+	}
+	
+	.close:hover,
+	.close:focus {
+	  color: red;
+	  cursor: pointer;
+	}
+	
+	/* Add Zoom Animation */
+	.animate {
+	  -webkit-animation: animatezoom 0.6s;
+	  animation: animatezoom 0.6s
+	}
+	
+	@-webkit-keyframes animatezoom {
+	  from {-webkit-transform: scale(0)} 
+	  to {-webkit-transform: scale(1)}
+	}
+	  
+	@keyframes animatezoom {
+	  from {transform: scale(0)} 
+	  to {transform: scale(1)}
+	}
+	
+	/* Change styles for span and cancel button on extra small screens */
+	@media screen and (max-width: 300px) {
+	  span.psw {
+	     display: block;
+	     float: none;
+	  }
+	  .cancelbtn {
+	     width: 100%;
+	  }
+	}
+
+/*changed login style ends*/
+
+    label {
+       font-weight:bold;
+       width:100px;
+       font-size:14px;
+       display: inline-flex;
+       flex-flow: row;
+    }
+    .box {
+       border:#666666 solid 1px;
+    }
+
+/* LogIn page style ends here */
+
+/*--------------------------------------------------------*/
+
+/*Register.php style starts here */
+.container {
+    box-sizing: border-box;
+   
+    
+}
+input[type=submit]:hover {
+  background-color: #efd930;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .container{
+    width: 100%;
+    margin-top: 0;
+  }
+/*Register.php style ends here */
+
+
+/*---------------------------------------------*/
+    
+    
+/* Profile page style starts here*/
+     
+    div.card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 100px;
+            margin: auto;
+            text-align: right;
+            position: absolute;
+            right: 150px;
+            top: 80px;
+            /*left: 10px;*/
+        }
+
+
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+        
+
+        div.info {
+            color: black;
+            position: absolute;
+             position: absolute;
+            right: 150px;
+            width: 200px;
+            height: 120px;
+            border: 3px solid green;
+        
+            /*top: 80px;
+            left: 330px;*/
+        }
+
+    div.pjobsearchbox{
+        
+        text-align: center;
+    }
+    
+    
+    div.jobapp {
+        
+        text-align: center;
+        
+    }
+    
+    
+.box {
+
+  height: 20px;
+  width: 200px;
+
+
+}
+
+
+/*Profile page style ends here */
+
+/*--------------------------------------------------------*/
+/*Job seacrh page style starts here */
+
+#jobsearchbox {
+    text-align: center;
+    width: auto;
+    border: solid;
+
+}
+    
+    .Job_Search_Results {
+        padding-left: 20px;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+/* Job search page style ends here */
