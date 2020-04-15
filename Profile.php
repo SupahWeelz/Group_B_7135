@@ -7,7 +7,7 @@
 -->
 
 <?php
-  
+
 	include "include/Header.php";
 	include "include/Config.php";
 	$RecruiterVal=30;
@@ -19,40 +19,40 @@
 	}
 ?>
 		<!-- Display basic information like profile photo, name, current job, etc.-->
-	
+
 	<?php
 		$getName="SELECT FirstName,LastName FROM userlogin WHERE UserID='".$_SESSION["id"]."'";
 		$result=Query($getName,$db);
 		$row=mysqli_fetch_assoc($result);
 	?>
-	
+
 	<?php
 		//Store profile picture
 	?>
+  <br/>
     <div class="card">
-        <img src="include/boss.jpg" alt="Iguardo" style="width:100%;"/>
+        <img src="include/boss.jpg" alt="Iguardo" style="width:auto;"/>
         <h1><?php echo $row["FirstName"].' '.$row["LastName"];?></h1>
     </div>
-	
+
     <form action="upload.php" method="post" enctype="multipart/form-data">
-		Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload"/>
-        <input type="submit" value="Upload Image" name="submit"/>
+      <p> Select image to upload:<input type="file" name="fileToUpload" id="fileToUpload"/></p>
+        <p><input type="submit" value="Upload Image" name="submit"/></p>
     </form>
 
     <div class="info">
 
         <h2>About Me:</h2>
+      <blockquote><input type="text" /></blockquote>
 
     </div>
 
 		<!--job search code starts here....................................................-->
-	<div id="jobserach" align="right">
-	<div id="jobsearch_box" align="right">
-			<p><button>Job Search</button></p>
-		<br><br>
-		<form action= "Job_Search_Results.php" method="post">
-		 <!-- 
+    <div class="pjobsearchbox">
+    <h2>Job Search </h2>
+    <hr/>
+    <form action= "Job_Search_Results.php" method="post">
+		 <!--
 		 Job ID		  <input type="text" name="JobID" style="width:auto;">
 		 Job Name     <input type="text" name="JobName" style="width:auto;">
 		 Job Type     <input type="text" name="JobType" style="width:auto;">
@@ -63,8 +63,8 @@
 		 Company ID   <input type="text" name="CompanyID" style="width:auto;">
 		 Description  <input type="text" name="Keyword" style="width:auto;">
 		 -->
-		 Keyword <input type="text" name="Keyword" style="width:auto;">
-		<br>
+		 <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;"/>
+		<br/>
 		<!--
 	     <select type="text" name="jtype" class ="box"/> <br/><br/>
 	      <option value="FullTime">Full-time</option>
@@ -86,8 +86,8 @@
 		//print_r($row);
 
 		if($count > 0){
-			echo '<div class="info">';
-			echo '<form action="Job_Apps.php" method="POST"><button value="View Job Applications">View Job Applications</button></form>';
+			echo '<div class="jobapp">';
+			echo '<form action="Job_Apps.php" method="POST"><button type="viewapp" value="View Job Applications">View Job Applications</button></form>';
 			echo '</div>';
 		}
 
@@ -98,10 +98,10 @@
 
 		if($row["UserTypeID"] == $RecruiterVal){
 			// Display job postings here
-			
+
 			$getPostings="SELECT * FROM job WHERE PostedBy=".$_SESSION["id"];
 			$resultc= query($isPoster,$db);
-			
+
 			while($row = $resultc->fetch_assoc()){
 				echo 'Job Title:'.$row['JobName'].'<br>';
 				echo 'Description:  '.$row['Description'].'<br>';
