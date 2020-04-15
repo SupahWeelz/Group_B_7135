@@ -18,14 +18,13 @@
        <div id="top"><img src="images/TransLogo.png" alt="logo"  style="width:100px;height:100px"/></div>
 
         <div id="main">
-
                     <nav>
                       <ul>
                         <li > <a href="index.php" >Home</a>  </li>
 						<!-- Change to Job Listing once Ed is done with it-->
                         <li><a href="Job_Search_Page.php">Jobs</a></li>
                         <li><a href="Profile.php">Profile</a></li>
-                        <li><a href="#">Message</a></li>
+                        <li><a href="ChatA.php">Message</a></li>
                         <li><a href="#">Notifications</a></li>
                         <li><input type="text" placeholder="Search"></li>
                       </ul>
