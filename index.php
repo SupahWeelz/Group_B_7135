@@ -5,23 +5,22 @@
 
 ?>
   <!login pop up codes..............................................................................>
-
+                    
 					<div id="login">
-
+					  
 					<?php
 						if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true ){
 							echo '<button onclick="window.location.replace(\'Logout.php\');" style="width:auto;">Logout</button>';
 						}
 						else{
-							echo '<p>Alreay have an account? Log in here.</p>';
-							echo '<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Login </button><br/>';
-								echo '<p>Do not have an account? Register here.</p>';
+							echo '<p>Alreay have an account? Log in here</p>';
+							echo '<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Login </button>';
 							echo '<button onclick="document.location=\'Register.php\'" style="width:auto;">Register</button>';
 						}
 					?>
 					<!--
                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
+					
 					<button onclick="window.location.replace('Logout.php');" style="width:auto;">Logout</button>
 					-->
                   	<div id="id01" class="modal">
