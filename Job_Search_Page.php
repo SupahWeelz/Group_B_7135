@@ -2,10 +2,10 @@
 	include"include/Header.php";
 	include"include/Config.php";
 ?>
+<div id="jobsearchbox">
 <h1>Job Search </h1>
-______________________________________________________
-<br><br>
-<form action= "Job_Search_Results.php" method="post">
+<hr/>
+<form action= "Job_Search_Results.php" method="post"/>
   <!--
  Job ID		  <input type="text" name="JobID" style="width:auto;">
  Job Name     <input type="text" name="JobName" style="width:auto;">
@@ -17,14 +17,16 @@ ______________________________________________________
  Company ID   <input type="text" name="CompanyID" style="width:auto;">
  Description  <input type="text" name="Keyword" style="width:auto;">
  -->
- Keyword <input type="text" name="Keyword" style="width:auto;">
-<br>
-<input type="submit" value="Find A Job">
+ <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;"/>
+<br/>
+<p><button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Find A Job</button></p> <!<input type="submit" value="Find A Job" />
 </form>
-______________________________________________________
+<hr/>
+
 <div>
-	<br>
-	<form><input type="button" value="Go back!" onclick="history.back()"></form>
+	<br/>
+	<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Go Back!</button></p>
+</div>
 </div>
 
 <?php
