@@ -93,7 +93,7 @@
 		</div>
 
 		<div class="container signin">
-			<p>Already have an account? <a href="index.php">Sign in</a>.</p>
+			<p>Already have an account? <a href="Login.php">Sign in</a>.</p>
 		</div>
 <?php
 	include "include/Footer.php";
