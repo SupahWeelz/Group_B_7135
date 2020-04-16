@@ -21,30 +21,30 @@
 		<!-- Display basic information like profile photo, name, current job, etc.-->
 
 	<?php
-		$getName="SELECT FirstName,LastName FROM userlogin WHERE UserID='".$_SESSION["id"]."'";
+	// Gets name and profile picture to be displayed
+		$getName="SELECT FirstName,LastName,ProfilePicture,AboutMe FROM userlogin WHERE UserID='".$_SESSION["id"]."'";
 		$result=Query($getName,$db);
 		$row=mysqli_fetch_assoc($result);
 	?>
-
-	<?php
-		//Store profile picture
-	?>
   <br/>
     <div class="card">
-        <img src="include/boss.jpg" alt="Iguardo" style="width:auto;"/>
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['ProfilePicture']); ?>" alt="No image found" style="width:auto;" onerror="this.src='images/avatar2.png';"/>
         <h1><?php echo $row["FirstName"].' '.$row["LastName"];?></h1>
     </div>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-      <p> Select image to upload:<input type="file" name="fileToUpload" id="fileToUpload"/></p>
-        <p><input type="submit" value="Upload Image" name="submit"/></p>
+    <form action="Upload.php" method="POST" enctype="multipart/form-data">
+      <p> Select image to upload:<input type="file" name="image" id="fileToUpload"/></p>
+      <p><input type="submit" value="Upload" name="submit"/></p>
     </form>
 
     <div class="info">
-
-        <h2>About Me:</h2>
-      <blockquote><input type="text" /></blockquote>
-
+		<h2>About Me:</h2>
+		<blockquote><?php echo $row["AboutMe"]; ?></blockquote>
+		Update 
+		<form action="Update_User_Info.php" method="POST">
+			<input type="text" name="newText">
+			<input type="submit">
+		</form>
     </div>
 
 		<!--job search code starts here....................................................-->
