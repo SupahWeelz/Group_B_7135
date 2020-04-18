@@ -17,7 +17,7 @@
     <body>
        <div id="top"><img src="images/TransLogo.png" alt="logo"  style="width:100px;height:100px"/></div>
 
-        <div id="main" align="center">
+        <div id="main">
                     <nav>
                       <ul>
                         <li > <a href="index.php">Home</a>  </li>
