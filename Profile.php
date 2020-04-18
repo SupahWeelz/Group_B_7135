@@ -75,9 +75,6 @@
 		<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
 		</form>
 	</div>
-
-	</div>
-</body>
 <?php
 		// Query to see if user is a job seeker
 		$isSeeker="SELECT jobseeker.UserID FROM jobseeker,userlogin WHERE userlogin.UserID=".$_SESSION["id"]." AND jobseeker.UserID=userlogin.UserID";
@@ -99,14 +96,19 @@
 		if($row["UserTypeID"] == $RecruiterVal){
 			// Display job postings here
 
-			$getPostings="SELECT * FROM job WHERE PostedBy=".$_SESSION["id"];
-			$resultc= query($isPoster,$db);
-
+			$getPostings="SELECT JobName,JobDescription FROM job WHERE PostedBy=".$_SESSION["id"];
+			$resultc= query($getPostings,$db);
+			//$res=mysqli_fetch_assoc($resultc);
+?>
+<h2>Create New Job Posting</h2>
+<button onclick="window.location.href = 'Job_Posting.php'" style="width:auto;">Create</button>
+<?php
+			
+			echo '<h2>Job Postings:</h2>';
 			while($row = $resultc->fetch_assoc()){
 				echo 'Job Title:'.$row['JobName'].'<br>';
-				echo 'Description:  '.$row['Description'].'<br>';
+				echo 'Description:  '.$row['JobDescription'].'<br>';
 			}
-			echo '<h2>Job Postings:</h2>';
 		}
 include("include/Footer.php");
 
