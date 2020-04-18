@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 18, 2020 at 02:45 AM
+-- Generation Time: Apr 18, 2020 at 07:19 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -148,7 +148,29 @@ CREATE TABLE IF NOT EXISTS `employee` (
   PRIMARY KEY (`EmployeeID`),
   KEY `employee_ibfk_1` (`UserID`),
   KEY `employee_ibfk_2` (`CompanyID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`EmployeeID`, `CompanyID`, `UserID`, `Position`, `Start_date`, `End_date`) VALUES
+(2, 4, 83, 'Tester', '2020-04-01', NULL),
+(3, 4, 46, 'Engineer', '2020-04-01', NULL),
+(4, 4, 50, 'Software Engineer', '2020-04-01', NULL),
+(5, 4, 77, 'IT Developer', '2020-04-01', NULL),
+(6, 4, 74, 'IT Analyst', '2020-04-01', NULL),
+(7, 4, 44, 'Mechanical  Engineer', '2020-04-01', NULL),
+(8, 5, 48, 'Civil Engineer', '2020-04-01', NULL),
+(9, 5, 76, 'Computer Engineer', '2020-04-01', NULL),
+(10, 5, 73, 'Mechanical Engineer', '2020-04-01', NULL),
+(11, 5, 75, 'Project Manager', '2020-04-01', NULL),
+(12, 5, 61, 'Computer Developer', '2020-04-01', NULL),
+(13, 5, 62, 'IT Analyst', '2020-04-01', NULL),
+(14, 5, 72, 'Mechanical Engineer', '2020-04-01', NULL),
+(15, 6, 47, 'Civil Engineer', '2020-04-01', NULL),
+(16, 6, 30, 'Mechanical Engineer', '2020-04-01', NULL),
+(17, 6, 63, 'Mechanical Engineer', '2020-04-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -292,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `userlogin` (
   UNIQUE KEY `Username` (`Username`),
   UNIQUE KEY `Email` (`Email`),
   KEY `usertypeid` (`UserTypeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `userlogin`
@@ -300,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `userlogin` (
 
 INSERT INTO `userlogin` (`UserID`, `UserTypeID`, `Username`, `Email`, `Password`, `FirstName`, `MiddleName`, `LastName`, `StreetAddress`, `City`, `State`, `ZipCode`, `Phone`, `ProfilePicture`, `AboutMe`) VALUES
 (30, 40, 'Dalessa@yahoo.com', 'Dalessa@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Dahne', NULL, 'D_alessandro', '', 'Baton Rouge', 'LA', '32', NULL, NULL, NULL),
-(46, 40, 'dani@hotmail.com', 'dani@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Dani', NULL, 'Rodriguez', '1654 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, NULL, NULL),
+(46, 40, 'dani@hotmail.com', 'dani@hotmail.com', '35139ef894b28b73bea022755166a23933c7d9cb', 'Dani', NULL, 'Rodriguez', '1654 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, NULL, 'Not about me!'),
 (47, 40, 'danielCaraba@hotmail.com', 'danielCaraba@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Daniel', NULL, 'Caraballo', '1655 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, NULL, NULL),
 (48, 40, 'daniel@hotmail.com', 'daniel@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Daniel', NULL, 'Rodriguez', '1656 Brightside Dr Baton Rouge', 'Baton Rouge', 'LA', '70820', NULL, NULL, NULL),
 (49, 40, 'DS@yahoo.com', 'DS@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Denisse', NULL, 'Saenz', '1423 Burbank Dr Gonzales', 'Baton Rouge', 'LA', '5674', NULL, NULL, NULL),
@@ -337,7 +359,8 @@ INSERT INTO `userlogin` (`UserID`, `UserTypeID`, `Username`, `Email`, `Password`
 (96, 40, 'jesse_employee', 'gdai1_4@lsu.edu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Guangyuan', '', 'Dai', NULL, 'Baton Rouge', 'LA', NULL, NULL, NULL, NULL),
 (97, 50, 'kmadde5_potential', 'kmadde5_5@lsu.edu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Kaitlyn', 'M', 'Madden', NULL, 'Baton Rouge', 'LA', NULL, NULL, NULL, NULL),
 (98, 50, 'mahfuza_potential', 'mkhatu1_5@lsu.edu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Mahfuza', NULL, 'Khatun', NULL, 'Baton Rouge', 'LA', NULL, NULL, NULL, NULL),
-(99, 50, 'ewils53_potential', 'ewils53_5@lsu.edu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Edward', '', 'Wilson', NULL, 'Baton Rouge', 'LA', NULL, NULL, NULL, NULL);
+(99, 50, 'ewils53_potential', 'ewils53_5@lsu.edu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Edward', '', 'Wilson', NULL, 'Baton Rouge', 'LA', NULL, NULL, NULL, NULL),
+(100, 50, 'tester', 'tester@yahoo.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'tester_F', 't', 'tester_L', NULL, 'Baton Rouge', 'LA', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
