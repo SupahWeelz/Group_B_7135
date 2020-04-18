@@ -28,7 +28,7 @@
 	?>
   <br/>
     <div class="card">
-        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['ProfilePicture']); ?>" alt="No image found" style="width:auto;" onerror="this.src='images/avatar2.png';"/>
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['ProfilePicture']); ?>" alt="No image found" style="max-width: 500px;max-height:800px;height:auto;width:auto;" onerror="this.src='images/avatar2.png';"/>
         <h1><?php echo $row["FirstName"].' '.$row["LastName"];?></h1>
     </div>
 
