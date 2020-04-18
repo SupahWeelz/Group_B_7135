@@ -20,7 +20,7 @@
         <div id="main">
                     <nav>
                       <ul>
-                        <li > <a href="index.php" >Home</a>  </li>
+                        <li > <a href="index.php">Home</a>  </li>
 						<!-- Change to Job Listing once Ed is done with it-->
                         <li><a href="Job_Search_Page.php">Jobs</a></li>
                         <li><a href="Profile.php">Profile</a></li>
