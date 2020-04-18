@@ -25,8 +25,6 @@
                         <li><a href="Job_Search_Page.php">Jobs</a></li>
                         <li><a href="Profile.php">Profile</a></li>
                         <li><a href="ChatA.php">Message</a></li>
-                        <li><a href="#">Notifications</a></li>
-                        <li><input type="text" placeholder="Search"></li>
                       </ul>
                     </nav>';
 ?>
