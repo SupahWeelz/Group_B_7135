@@ -12,6 +12,7 @@
 	// Selects and displays applications that current user has applied to
 	//$getApplications = "SELECT * FROM application, job, jobseeker WHERE jobseeker.JobSeekerID = application.JobseekerID AND A.JobID = B.JobID GROUP BY A.ApplicationID ORDER BY Close_date";
 
+
 	$getApplications = "SELECT job.JobName,application.ApplicationID,application.Applied_date,job.JobDescription,company.CompanyName FROM company,application,jobseeker,job,userlogin WHERE jobseeker.JobSeekerID = application.JobseekerID AND application.JobID = job.JobID AND company.CompanyID = job.CompanyID AND jobseeker.UserID = userlogin.UserID AND userlogin.UserID = ".$_SESSION["id"];
 
 	$result = query($getApplications,$db);
@@ -27,6 +28,7 @@
 	<input type="submit" value="Remove">
 </form></td></tr>
 <?php
+
 				$myCount=$myCount+1;
 				if($myCount>51){
 					break;
