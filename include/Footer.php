@@ -7,10 +7,11 @@
     </body>
 
 <footer align="center">
-  A job search platform for oil companies.
+ @2020 DCDR.sa. All rights reserved. 
 </footer>
 
 </html>';
 $db -> close();
 
 ?>
+

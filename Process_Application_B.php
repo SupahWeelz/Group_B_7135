@@ -32,7 +32,7 @@
 		
 		//print_r($_POST);
 		
-		$makeApp="INSERT INTO application (JobID,JobSeekerID,Justification,Applied_date,Answers) VALUES (".$_POST["jobId"].",".$rowb["JobSeekerID"].",'".$_POST["justification"]."','".date('Y-m-d')."','".$_POST["answer"]."')";
+		$makeApp="INSERT INTO application (JobID,JobSeekerID,Justification,Applied_date,Answers) VALUES (".$_POST["JobID"].",".$rowb["JobSeekerID"].",'".$_POST["justification"]."','".date('Y-m-d')."','".$_POST["answer"]."')";
 		$resultc=query($makeApp,$db);
 		
 		if($resultc == True){
@@ -46,7 +46,7 @@
 			$from="DCDR";
 			
 			// Get job title
-			$getJob="SELECT JobName FROM job WHERE JobID=".$_POST["jobId"];
+			$getJob="SELECT JobName FROM job WHERE JobID=".$_POST["JobID"];
 			$result2=query($getJob,$db);
 			$row2=mysqli_fetch_assoc($result2);
 			
@@ -55,7 +55,7 @@
 			
 			mail($address,$subject,$message,$from);
 			
-			//echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
+			echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";
 		}
 		else{
 			echo "Query unsuccessful!";

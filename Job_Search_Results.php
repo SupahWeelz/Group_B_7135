@@ -36,6 +36,7 @@
 		$temp=$getIds2.$listJobs[$i];
 		$tempResult=Query($temp,$db);
 		$tempRow=mysqli_fetch_assoc($tempResult);
+		//print_r($tempRow);
 		echo '<div class="Job_Search_Results">';
 		echo '<b>Job Title:</b>'.' '.$tempRow['JobName'].'<br/>';
 		echo '<b>Description: </b> '.$tempRow['JobDescription'].'<br/>';
@@ -47,8 +48,8 @@
 
 
 		// Button for applying
-		echo '<form method="POST" action="Process_Application_A.php">';
-		echo '<input type="hidden" name="jobId" value="'.$tempRow['JobID'].'"/>';
+		echo '<form method="POST" action="Check_Application.php">';
+		echo '<input type="hidden" name="JobID" value="'.$tempRow['JobID'].'"/>';
 		echo '<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Apply</button>';
 		echo '</form>';
 	}
