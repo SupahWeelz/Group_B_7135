@@ -40,28 +40,28 @@ $
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br/>" . $conn->error;
 }
 $conn->close();
 // End php tag
 ?>
-<br>-----------------------------------------<br>
-Your Job Listing<br>
-JobID= <?php echo $_POST["JobID"]; ?><br>
-JobName= <?php echo $_POST["JobName"]; ?><br>
-Job Description= <?php echo $_POST["Description"]; ?><br>
-Company ID= <?php echo $_POST["CompanyID"]; ?><br>
-Posting Date= <?php echo $_POST["Posting_Date"]; ?><br>
-Open Date= <?php echo $_POST["Open_Date"]; ?><br>
-Close Date= <?php echo $_POST["Close_Date"]; ?><br>
-Number Available= <?php echo $_POST["Number_available"]; ?><br>
-Post By= <?php echo $_POST["Postedby"]; ?><br>
-Qualification= <?php echo $_POST["Qualification"]; ?><br>
-Salary Range= <?php echo $_POST["SalaryRange"]; ?><br>
-Job Type= <?php echo $_POST["JobType"]; ?><br>
-Location= <?php echo $_POST["Location"]; ?><br>
-Benefits= <?php echo $_POST["Benefits"]; ?><br>
-Questions= <?php echo $_POST["Questions"]; ?><br><br>
+<br/>-----------------------------------------<br/>
+Your Job Listing<br/>
+JobID= <?php echo $_POST["JobID"]; ?><br/>
+JobName= <?php echo $_POST["JobName"]; ?><br/>
+Job Description= <?php echo $_POST["Description"]; ?><br/>
+Company ID= <?php echo $_POST["CompanyID"]; ?><br/>
+Posting Date= <?php echo $_POST["Posting_Date"]; ?><br/>
+Open Date= <?php echo $_POST["Open_Date"]; ?><br/>
+Close Date= <?php echo $_POST["Close_Date"]; ?><br/>
+Number Available= <?php echo $_POST["Number_available"]; ?><br/>
+Post By= <?php echo $_POST["Postedby"]; ?><br/>
+Qualification= <?php echo $_POST["Qualification"]; ?><br/>
+Salary Range= <?php echo $_POST["SalaryRange"]; ?><br/>
+Job Type= <?php echo $_POST["JobType"]; ?><br/>
+Location= <?php echo $_POST["Location"]; ?><br/>
+Benefits= <?php echo $_POST["Benefits"]; ?><br/>
+Questions= <?php echo $_POST["Questions"]; ?><br/><br/>
 
 <button onclick="window.location.href = 'JobSearchPage';">View Jobs</button>
 <?php
