@@ -5,6 +5,7 @@
 	//print_r($_POST);
 	//echo ini_get('SMTP');
 ?>
+
 <form action="Process_Application_B.php" method="POST">
 		<div class="container">
 			<h1>Job Application</h1>
@@ -24,7 +25,7 @@
 				
 				<!-- Receives jobid and passes it to Process_Application_B.php -->
 				
-				<input name="jobId" type="hidden" value=<?php echo $_POST["jobId"]; ?>>
+				<input name="JobID" type="hidden" value=<?php echo $_POST["JobID"]; ?>>
 				<br/>
 				
 			<hr/>

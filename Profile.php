@@ -63,7 +63,7 @@
 		 Company ID   <input type="text" name="CompanyID" style="width:auto;">
 		 Description  <input type="text" name="Keyword" style="width:auto;">
 		 -->
-		 <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;"/>
+		 <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;" required />
 		<br/>
 		<!--
 	     <select type="text" name="jtype" class ="box"/> <br/><br/>

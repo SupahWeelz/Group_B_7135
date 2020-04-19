@@ -40,7 +40,7 @@
 		}
 		
 		if(empty($errors)){
-			$sql = "INSERT INTO userlogin (Username,Password,FirstName,MiddleName,LastName,Email) VALUES ('".$_POST["username"]."',SHA('".$_POST["psw"]."'),'".$_POST["firstname"]."','".$_POST["middlename"]."','".$_POST["lastname"]."','".$_POST["email"]."')";
+			$sql = "INSERT INTO userlogin (Username,Password,FirstName,MiddleName,LastName,Email) VALUES ('".$_POST["username"]."',SHA1('".$_POST["psw"]."'),'".$_POST["firstname"]."','".$_POST["middlename"]."','".$_POST["lastname"]."','".$_POST["email"]."')";
 			$result = mysqli_query($db,$sql) or die('Error executing query: '.mysqli_error($db));
 			
 			echo "<script type='text/javascript'> document.location = 'Index.php'; </script>";

@@ -17,7 +17,7 @@
  Company ID   <input type="text" name="CompanyID" style="width:auto;">
  Description  <input type="text" name="Keyword" style="width:auto;">
  -->
- <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;"/>
+ <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;" required />
 <br/>
 <p><button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Find A Job</button></p> <!<input type="submit" value="Find A Job" />
 </form>
