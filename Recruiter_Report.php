@@ -23,7 +23,7 @@
 
 	
 	printf(" We found %d Job Matches.<br>", $Jrow_cnt);
-	printf(" We found %d Job Applicants.<br>", $Urow_cnt);
+	printf(" We found %d System Users.<br>", $Urow_cnt);
 	printf(" We found %d Job Applicants.<br>", $Arow_cnt);
 // job category with the highest # of applications
 	
