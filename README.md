@@ -3,15 +3,15 @@ Job Search Application
 
 Programming languages:
 
-    -HTML,Javascript,PHP
+    HTML,Javascript,PHP
 
 Other languages:
 
-    -CSS, mySQL
+    CSS, mySQL
 
 Server:
 
-    -WAMP
+    WAMP
 
 Code:
 
