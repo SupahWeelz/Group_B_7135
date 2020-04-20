@@ -7,7 +7,7 @@
 -->
 
 <?php
-  
+
 	include "include/Header.php";
 	include "include/Config.php";
 	$RecruiterVal=30;
@@ -19,70 +19,62 @@
 	}
 ?>
 		<!-- Display basic information like profile photo, name, current job, etc.-->
-	
-	<?php
-		
-	?>
-	
 
+	<?php
+	// Gets name and profile picture to be displayed
+		$getName="SELECT FirstName,LastName,ProfilePicture,AboutMe FROM userlogin WHERE UserID='".$_SESSION["id"]."'";
+		$result=Query($getName,$db);
+		$row=mysqli_fetch_assoc($result);
+	?>
+  <br/>
     <div class="card">
-        <img src="include/boss.jpg" alt="Iguardo" style="width:100%;"/>
-        <h1>Iguardo Valencia</h1>
-        <p class="title">Procurement Category Specialist (New Energies), Shell</p>
-        <p>Texas AM</p>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <p><button>Contact</button></p>
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['ProfilePicture']); ?>" alt="No image found" style="max-width: 500px;max-height:800px;height:auto;width:auto;" onerror="this.src='images/avatar2.png';"/>
+        <h1><?php echo $row["FirstName"].' '.$row["LastName"];?></h1>
     </div>
-	
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-		Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload"/>
-        <input type="submit" value="Upload Image" name="submit"/>
+
+    <form action="Upload.php" method="POST" enctype="multipart/form-data">
+      <p> Select image to upload:<input type="file" name="image" id="fileToUpload"/></p>
+      <p><input type="submit" value="Upload" name="submit"/></p>
     </form>
 
     <div class="info">
-
-        <h2>About Me:</h2>
-
+		<h2>About Me:</h2>
+		<blockquote><?php echo $row["AboutMe"]; ?></blockquote>
+		Update 
+		<form action="Update_User_Info.php" method="POST">
+			<input type="text" name="newText">
+			<input type="submit">
+		</form>
     </div>
 
 		<!--job search code starts here....................................................-->
-	<div id="jobserach" align="right">
-	<div id="jobsearch_box" align="right">
-			<p><button>Job Search</button></p>
-		<br><br>
-		<form action= "Job_Search_Results." method="post">
-		  
+    <div class="pjobsearchbox">
+    <h2>Job Search </h2>
+    <hr/>
+    <form action= "Job_Search_Results.php" method="post">
+		 <!--
 		 Job ID		  <input type="text" name="JobID" style="width:auto;">
 		 Job Name     <input type="text" name="JobName" style="width:auto;">
 		 Job Type     <input type="text" name="JobType" style="width:auto;">
-		 Job Category <input type="text" name="JobCategory" style="width:auto;">
 		 SalaryRange  <input type="text" name="SalaryRange" style="width:auto;">
-		 Posting Date <input type="text" name="PostDate" style="width:auto;">
-		 Close Date   <input type="text" name="CloseDate" style="width:auto;">
+		 Posting Date <input type="date" name="PostDateStart" style="width:auto;">
+		 to   <input type="date" name="PostDateEnd" style="width:auto;">
 		 Job Location <input type="text" name="Location" style="width:auto;">
 		 Company ID   <input type="text" name="CompanyID" style="width:auto;">
 		 Description  <input type="text" name="Keyword" style="width:auto;">
-		<br>
+		 -->
+		 <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;" required />
+		<br/>
+		<!--
 	     <select type="text" name="jtype" class ="box"/> <br/><br/>
 	      <option value="FullTime">Full-time</option>
 	      <option value="PartTime">Part-time</option>
 	      <option value="Other">Other</option>
 	    </select>
+		-->
 		<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
 		</form>
-		
-		<form action= "report.html" method="post">
-		<p><button>REPORT</button></p>		
-		</form>
-	
 	</div>
-
-	</div>
-</body>
 <?php
 		// Query to see if user is a job seeker
 		$isSeeker="SELECT jobseeker.UserID FROM jobseeker,userlogin WHERE userlogin.UserID=".$_SESSION["id"]." AND jobseeker.UserID=userlogin.UserID";
@@ -91,8 +83,8 @@
 		//print_r($row);
 
 		if($count > 0){
-			echo '<div class="info">';
-			echo '<form action="Job_Apps.php" method="POST"><button value="View Job Applications">View Job Applications</button></form>';
+			echo '<div class="jobapp">';
+			echo '<form action="Job_Apps.php" method="POST"><button type="viewapp" value="View Job Applications">View Job Applications</button></form>';
 			echo '</div>';
 		}
 
@@ -103,16 +95,20 @@
 
 		if($row["UserTypeID"] == $RecruiterVal){
 			// Display job postings here
+
+			$getPostings="SELECT JobName,JobDescription FROM job WHERE PostedBy=".$_SESSION["id"];
+			$resultc= query($getPostings,$db);
+			//$res=mysqli_fetch_assoc($resultc);
+?>
+<h2>Create New Job Posting</h2>
+<button onclick="window.location.href = 'Job_Posting.php'" style="width:auto;">Create</button>
+<?php
 			
-			$getPostings="SELECT * FROM job WHERE PostedBy=".$_SESSION["id"];
-			$resultc= query($isPoster,$db);
-			
+			echo '<h2>Job Postings:</h2>';
 			while($row = $resultc->fetch_assoc()){
 				echo 'Job Title:'.$row['JobName'].'<br>';
-				echo 'Description:  '.$row['Description'].'<br>';
+				echo 'Description:  '.$row['JobDescription'].'<br>';
 			}
-			echo '<h2>Job Postings:</h2>';
-
 		}
 include("include/Footer.php");
 
