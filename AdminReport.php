@@ -1,8 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
-
 <!--
-   | page generates a report of the current applicants tlist for all jobs posted by recruiter
-   | It will be nested SQL loops first loop loops through recruiter jobs then select all the applants for that job.
+   | page generates a report of the current applicants list for all jobs posted by recruiter
+   | It will be nested SQL loops: first loop loops through recruiter jobs then selects all the applicants for that job.
 -->
 <?php
 	include "include/Header.php";
