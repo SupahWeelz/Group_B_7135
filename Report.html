@@ -1,17 +1,36 @@
 
-<h1>Recruiter Report </h1>
+<h1>Report Generation</h1>
 ______________________________________________________
 <br><br>
 <form action= "Recruiter_Report.php" method="post">
    <!-- TextBox -->
- Enter Your Recruiter ID# <input type="text" name="InputRecruiterID">
+ Enter Date To Start Report <input type="date" name="DateFrom">
+<br>
+ Enter Date To End Report <input type="date" name="DateTo">
    <!-- Recruiter Report BUTTON -->
-  <input type="submit" value="Get Recruiter Report">
-</form>
-
-<form action= "Admin_Report.php" method="post">  
-   <!-- TextBox -->
- Enter Your Admin ID# <input type="text" name="InputAdminID">
-   <!--Admin Report  BUTTON -->
+<br>
   <input type="submit" value="Get Admin Report">
 </form>
+
+<?php
+	include"include/Header.php";
+?>
+<h1>Job Removal </h1>
+________________________________________________________
+
+<form action= "JobSearchRemoval.php" method="post">
+  
+ <br>Enter Recruiter ID <input type="text" name="_recruiterID">
+  <input type="submit" value="Find My Jobs">
+</form>
+________________________________________________________
+<div>
+	<br>
+	<form><input type="button" value="Go back!" onclick="history.back()"></form>
+
+    <input type="submit" value="Reset">
+</div>
+
+<?php
+	include("include/Footer.php");
+?>
