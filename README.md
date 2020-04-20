@@ -47,7 +47,8 @@ Code:
     -se_jobsearchapp.sql: contains SQL statements for creating and populating our database
     -style.css: style configurations for the entire website
 
-    Other files:
+  Other files:
+  
     -dir images:
      > includes images used in website like logo, banner, etc.
  
