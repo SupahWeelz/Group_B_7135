@@ -60,4 +60,14 @@ Code:
     -db_diagram.docx: word document containing both the generated ER diagram and data dictionary
   
  Does not use any external libraries.
+ 
+ Instructions to run:
+ 
+    1. Download WAMP from: https://sourceforge.net/projects/wampserver/ and install WAMP
+    2. Download ZIP file of this repository
+    3. Unzip to C:\wamp64\www (assuming normal installation)
+    4. Start WAMP server (make sure WAMP icon is green)
+    5. Go to: localhost/Group_B_7135-master/ in your internet browser
+    6. You should now be at the index page
+  
   
