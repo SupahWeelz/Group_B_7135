@@ -24,6 +24,7 @@ Code:
     -ChatA.php: interface of chat room
     -ChatB.php: chat room backend
     -Check_Application.php: checks if applicant has already applied to the job
+    -EmployeeListingAllCompanies: list of all employees working at companies registered in the system
     -Get_Image.php: gets user's profile picture from database
     -Job_Apps.php: gets list of jobs user has applied to
     -Job_Detail.php: unused
