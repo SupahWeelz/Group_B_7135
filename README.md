@@ -39,6 +39,7 @@ Code:
     -Process_Application_A.php: form for applying to job
     -Process_Application_B.php: checks if user has jobseeker profile; if not, then redirect to -Job_Seeker_Register.php; if so, then creates application
     -Profile: has profile picture, profile picture upload, about me, job search form, jobs applied to, jobs posted, and link to job post creation
+    -Recruiter_Report.php: generates a report of the current applicants list for all jobs posted by recruiter
     -Register: form for first time users to create a profile
     -Remove_Job.php: for when user deletes a job application
     -Report.html: form for generating reports
@@ -46,7 +47,7 @@ Code:
     -Update_User_Info.php: updates the about me field on profile
     -Upload.php: handles profile picture upload
     -index.php: home page; has login, logout, and register buttons
-    -log.html: contains log file for chat room
+    -log.html: contains log file for chat room; system will create this file if it doesn't already exist
     -se_jobsearchapp.sql: contains SQL statements for creating and populating our database
     -style.css: style configurations for the entire website
 
