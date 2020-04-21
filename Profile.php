@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR?xhtmll/DTD/xhtmll-strict.dtd">
 <!--
    | -Allows user to view their own profile
    | -Checks session variable for user id and pulls info from database based on id
@@ -6,77 +5,136 @@
    |	>if user is an applicant, then list the user's job applications
    | 	>if user is a recruiter,  then list the user's job postings
 -->
+
 <?php
-	session_start();
-?>
-  <html xmlns="http://ww.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	  <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link href="https://fonts.googleapis.com/css?family=Work+Sans: 30%"  />
-            <link type="text/css" rel="stylesheet" href="style.css"/>
-            <title>My profile</title>
-	   </head>
-<?php
-	include_once("include/Config.php");
-	include("include/Query.php");
-	
+
+	include "include/Header.php";
+	include "include/Config.php";
 	$RecruiterVal=30;
-	
+	$AdminVal=10;
+
 	// Checks if user is logged in
-	if(!isset($_SESSION["loggedin"])){
-		echo "<script type='text/javascript'> document.location = 'Login.php'; </script>";
+	// print_r($_SESSION);
+	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == false){
+		echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
 	}
-	else{
-		// Display basic information like profile photo, name, current job, etc.
-		
-		echo '<body>
+?>
+		<!-- Display basic information like profile photo, name, current job, etc.-->
+
+	<?php
+	// Gets name and profile picture to be displayed
+		$getName="SELECT FirstName,LastName,ProfilePicture,AboutMe FROM userlogin WHERE UserID='".$_SESSION["id"]."'";
+		$result=Query($getName,$db);
+		$row=mysqli_fetch_assoc($result);
+	?>
+  <br/>
     <div class="card">
-        <img src="include/boss.jpg" alt="Iguardo" style="width:100%"/>
-        <h1>Iguardo Valencia</h1>
-        <p class="title">Procurement Category Specialist (New Energies), Shell</p>
-        <p>Texas AM</p>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <p><button>Contact</button></p>
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['ProfilePicture']); ?>" alt="No image found" style="max-width: 500px;max-height:800px;height:auto;width:auto;" onerror="this.src='images/avatar2.png';"/>
+        <h1><?php echo $row["FirstName"].' '.$row["LastName"];?></h1>
     </div>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload"/>
-        <input type="submit" value="Upload Image" name="submit"/>
+    <form action="Upload.php" method="POST" enctype="multipart/form-data">
+      <p> Select image to upload:<input type="file" name="image" id="fileToUpload"/></p>
+      <p><input type="submit" value="Upload" name="submit"/></p>
     </form>
-    <p> **Upload doesn\'t work just yet. We\'ll have to add photo capability to the database.**</p>
 
     <div class="info">
-
-        <!--<h2>About Me:</h2>-->
-        
+		<h2>About Me:</h2>
+		<blockquote><?php echo $row["AboutMe"]; ?></blockquote>
+		Update 
+		<form action="Update_User_Info.php" method="POST">
+			<input type="text" name="newText">
+			<input type="submit">
+		</form>
     </div>
-</body>';
-		
+
+		<!--job search code starts here....................................................-->
+    <div class="pjobsearchbox">
+    <h2>Job Search </h2>
+    <hr/>
+    <form action= "Job_Search_Results.php" method="post">
+		 <!--
+		 Job ID		  <input type="text" name="JobID" style="width:auto;">
+		 Job Name     <input type="text" name="JobName" style="width:auto;">
+		 Job Type     <input type="text" name="JobType" style="width:auto;">
+		 SalaryRange  <input type="text" name="SalaryRange" style="width:auto;">
+		 Posting Date <input type="date" name="PostDateStart" style="width:auto;">
+		 to   <input type="date" name="PostDateEnd" style="width:auto;">
+		 Job Location <input type="text" name="Location" style="width:auto;">
+		 Company ID   <input type="text" name="CompanyID" style="width:auto;">
+		 Description  <input type="text" name="Keyword" style="width:auto;">
+		 -->
+		 <b>Keyword</b> <input type="text" name="Keyword" style="width:auto;" required />
+		<br/>
+		<!--
+	     <select type="text" name="jtype" class ="box"/> <br/><br/>
+	      <option value="FullTime">Full-time</option>
+	      <option value="PartTime">Part-time</option>
+	      <option value="Other">Other</option>
+	    </select>
+		-->
+		<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
+		</form>
+	</div>
+<?php
 		// Query to see if user is a job seeker
-		$isSeeker="SELECT UserID FROM jobseeker,userlogin WHERE ID=".$_SESSION["id"]." AND ID=UserID";
+		$isSeeker="SELECT jobseeker.UserID FROM jobseeker,userlogin WHERE userlogin.UserID=".$_SESSION["id"]." AND jobseeker.UserID=userlogin.UserID";
 		$result = query($isSeeker,$db);
 		$count = mysqli_num_rows($result);
 		//print_r($row);
-		
+
 		if($count > 0){
-			echo '<div class="info">';
-			echo '<form action="Job_Apps.php" method="POST"><button value="View Job Applications">View Job Applications</button></form>';
+			echo '<div class="jobapp">';
+			echo '<form action="Job_Apps.php" method="POST"><button type="viewapp" value="View Job Applications">View Job Applications</button></form>';
 			echo '</div>';
 		}
 		
-		// Query to see if user is a recruiter
-		$isPoster="SELECT UserTypeID FROM userlogin WHERE ID=".$_SESSION["id"];
+		// Query to see if user is an admin
+		$isPoster="SELECT UserTypeID FROM userlogin WHERE UserID=".$_SESSION["id"];
 		$resultb = query($isPoster,$db);
 		$row = mysqli_fetch_array($resultb,MYSQLI_ASSOC);
+
+		if($row["UserTypeID"] == $AdminVal){
+			// Display reports here
+			//San
+			echo '<div class="jobapp">';
+			echo '<form action="EmployeeListing_AllCompanies.php" method="GET"><button type="viewemployee" value="View EmployeeListing_AllCompanies Report">View EmployeeListing_AllCompanies Report</button></form>';
+			echo '</div>';
+			//Ed
+			echo '<div class="jobapp">';
+			echo '<form action="AdminReport.php" method="POST"><button type="viewapp" value="View Admin Report">View Admin Report</button></form>';
+			echo '</div>';
+				
+		}	
 		
+
+		// Query to see if user is a recruiter
+		$isPoster="SELECT UserTypeID FROM userlogin WHERE UserID=".$_SESSION["id"];
+		$resultb = query($isPoster,$db);
+		$row = mysqli_fetch_array($resultb,MYSQLI_ASSOC);
+
 		if($row["UserTypeID"] == $RecruiterVal){
 			// Display job postings here
+
+			$getPostings="SELECT JobName,JobDescription FROM job WHERE PostedBy=".$_SESSION["id"];
+			$resultc= query($getPostings,$db);
+			//$res=mysqli_fetch_assoc($resultc);
+		
+			
+			//$getPostings="SELECT JobName,JobDescription FROM job WHERE PostedBy=".$_SESSION["id"];
+			//$resultc= query($getPostings,$db);
+			//$res=mysqli_fetch_assoc($resultc);
+?>
+<h2>Create New Job Posting</h2>
+<button onclick="window.location.href = 'Job_Posting.php'" style="width:auto;">Create</button>
+<?php
+			
 			echo '<h2>Job Postings:</h2>';
+			while($row = $resultc->fetch_assoc()){
+				echo 'Job Title:'.$row['JobName'].'<br>';
+				echo 'Description:  '.$row['JobDescription'].'<br>';
+			}
 		}
-	}
+include("include/Footer.php");
+
 ?>
