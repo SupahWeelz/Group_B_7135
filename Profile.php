@@ -73,8 +73,8 @@
 	      <option value="Other">Other</option>
 	    </select>
 		-->
-		<p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
-		</form>
+        <p>	<button onclick="document.getElementById(\'id01\').style.display=\'block\'" style="width:auto;">Search</button></p>
+        </form>
 	</div>
 <?php
 		// Query to see if user is a job seeker
@@ -88,7 +88,7 @@
 			echo '<form action="Job_Apps.php" method="POST"><button type="viewapp" value="View Job Applications">View Job Applications</button></form>';
 			echo '</div>';
 		}
-		
+
 		// Query to see if user is an admin
 		$isPoster="SELECT UserTypeID FROM userlogin WHERE UserID=".$_SESSION["id"];
 		$resultb = query($isPoster,$db);
@@ -107,7 +107,9 @@
 				
 		}	
 		
-
+		
+		
+		
 		// Query to see if user is a recruiter
 		$isPoster="SELECT UserTypeID FROM userlogin WHERE UserID=".$_SESSION["id"];
 		$resultb = query($isPoster,$db);
@@ -119,14 +121,16 @@
 			$getPostings="SELECT JobName,JobDescription FROM job WHERE PostedBy=".$_SESSION["id"];
 			$resultc= query($getPostings,$db);
 			//$res=mysqli_fetch_assoc($resultc);
-		
-			
-			//$getPostings="SELECT JobName,JobDescription FROM job WHERE PostedBy=".$_SESSION["id"];
-			//$resultc= query($getPostings,$db);
-			//$res=mysqli_fetch_assoc($resultc);
+	
+	
 ?>
 <h2>Create New Job Posting</h2>
 <button onclick="window.location.href = 'Job_Posting.php'" style="width:auto;">Create</button>
+
+<form action= "report.html" method="post">
+		<p><button style="width:auto;">REPORT</button></p>		
+		</form>
+
 <?php
 			
 			echo '<h2>Job Postings:</h2>';
@@ -138,3 +142,6 @@
 include("include/Footer.php");
 
 ?>
+		
+		
+		
